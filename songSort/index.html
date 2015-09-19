@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Song Sorting Test</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
+	<!--<script type="text/javascript" src="spotify.js"></script>-->
 	<script type="text/javascript" src="jukebox.js"></script>
 	<script type="text/javascript" src="song.js"></script>
 	<style type="text/css">
@@ -12,10 +14,40 @@
 </head>
 <body>
 
+	<div id="results"></div>
+
 	<script type="text/javascript">
 
 		var clientID = "afa826690fe04e05a65c5b92ec2bec26";
 		var clientSecret = "d19a4e03cd31497981aa0ee5aa891eeb";
+		var spotifyBase = "https://api.spotify.com/";
+
+		/*var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://api.spotify.com/v1/tracks/0eGsygTp906u18L0Oimnem", false);
+		xhr.send();
+		console.log(xhr.status);
+		console.log(xhr.statusText);
+		var headers = xhr.getAllResponseHeaders().toLowerCase();
+		console.log(headers);*/
+
+
+		var rapNemesis = "3Fr6Wa1ap0Lv9KZ0lxGkiE";
+		
+		function getTrack(trackID){
+			$.ajax({
+				url: spotifyBase + 'v1/tracks/' + trackID,
+				beforeSend: function(xhr) {
+					xhr.setRequestHeader("Authorization", "Bearer BQC65ap1YKqT7yUSOGWZZ0_drwd1DzLtX2dhPTKSjMp5qhvnIJds-fzCbKV4RNnQB86BlAxsBiZrSFPK_1U96qiSpcMyCdGXoW4kW6D9ZArEcJLjd0BarL4sTlP_eB0A2tosIKcp5VkiVVJB77fexNTV21eCFqW_XnDbw6qaQtCOQXUixpbe32gwixFP-e8_yzVqqlMlnopN9teLDMkPvZYZsR1BJU9iOPk8NbLqtFsiNJE4fougiVVV3BvvQogOTiyUWGXyJthxYynGG3dmz_mcvMKnxYR-nbbl587uBVo")
+				}, success: function(data){
+					console.log(data);
+					return data;
+				}
+			});
+		}
+
+		var rap = getTrack(rapNemesis);
+
+
 
 		var jukebox = new Jukebox();
 
@@ -43,8 +75,8 @@
 			"Matt"
 		)]);
 
-		jukebox.sort();
-		document.write(jukebox);
+		/*jukebox.sort();
+		document.write(jukebox);*/
 
 	</script>
 
