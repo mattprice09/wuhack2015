@@ -2,7 +2,15 @@
 /*---> GLOBALS <------------------------------*/
 /*--------------------------------------------*/
 
-
+/*
+* This function can be passed into a sort function as a comparator when sorting an array of songs
+* Ex) var songs = [song1, song2, song3];
+*     songs.sort(sortSongsByScores);
+*     RESULT: [song2, song3, song1];
+*/
+function sortSongsByScores(song1, song2){
+	return song2.getScore() - song1.getScore();
+}
 
 /*--------------------------------------------*/
 /*---> JUKEBOX CLASS <------------------------*/
@@ -10,6 +18,12 @@
 
 function Jukebox(){
 	this.songs = [];
+}
+
+Jukebox.prototype.sort = function(){
+	this.songs.sort(function(a, b){
+		return sortSongsByScores(a, b);
+	});
 }
 
 /*

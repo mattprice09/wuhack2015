@@ -10,16 +10,6 @@ var WEIGHT = {
 	'FAIRNESS': 1.2
 };
 
-/*
-* This function can be passed into a sort function as a comparator when sorting an array of songs
-* Ex) var songs = [song1, song2, song3];
-*     songs.sort(sortSongsByScores);
-*     RESULT: [song2, song3, song1];
-*/
-function sortSongsByScores(song1, song2){
-	return song1.getScore() - song2.getScore();
-}
-
 /*--------------------------------------------*/
 /*---> SONG CLASS <---------------------------*/
 /*--------------------------------------------*/
