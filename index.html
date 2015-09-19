@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="style/styles.css">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Oxygen:400,700,300' rel='stylesheet' type='text/css'>
+	<script src="style/classie.js"></script>
 	<style type="text/css">
 
 		body{
@@ -29,12 +30,14 @@
 		}
 
 		.iframePlayer{
-			width: 100%;
+			width: 90%;
+			margin: 5%;
 			height: 80px;
-			margin-bottom: 10px;
 		}
 
 		li.songRank{
+			width: 100%;
+			line-height: 20px;
 			padding: 10px;
 			background: #1A1A1A;
 			color: white;
@@ -75,6 +78,7 @@
 		var wizKhalifa = "137W8MRPWKqSmrBGDBFSop";
 		getArtist(wizKhalifa);
 
+		getSearch('uptown funk', 'track');
 
 		
 
