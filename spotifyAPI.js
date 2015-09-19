@@ -1,7 +1,7 @@
 var clientID = "afa826690fe04e05a65c5b92ec2bec26";
 var clientSecret = "d19a4e03cd31497981aa0ee5aa891eeb";
 var spotifyBase = "https://api.spotify.com/";
-var bearer = "BQCq3HTdsBYGcInuVze-a22Hd2-hv_7pOx3KgqGwW-wfTHFxbLJ4AL6j-Ebz-g8ssPJVl6OgorYCVM0CPTNg7ckJ81EBQbFkjzQulKmAgDcB7sguxXC99I0YFplCeiDBg0mmAcNgQyY0zMZMotGgO7Csqf5KgUQTh0VyCI4dEPPW9YDbsE2A2KHys-5-p-YliZg3Cz-eE9_yTKEchdqZjE9LDn9wsHoaG6fuP-_pKsbhX2-fIdNqWMpdgf-TE8pFkr1bJ3n4cpPgnfVq5-DkCMJ_lLaGXYDYhIVCnz_ICA0";
+var bearer = "BQA6DbvKxFGbs-fqVpFJWvOR0CSZwm38hvRHi8ossEkj4X5qGxxn2JPwNte-ZEYXSsLatnFCCWNGx9OapWtfERWz3aA4ulCLxg9ey-2JgZqUwfNCmX1uPWsxrJ5HSiqOnTTU83zgqNwih8v_qTgUssMUmv7-oqDkP3GuwBBRSllZe-1HeoulqM2QU2vOI5ZUC9dakKhy2wHgwfkYZ5wLY1MQEFisp8LKWrE-wgNuPYy4gEqgQlqsqacfBbrK51hQ1j9Ab_xHMjrYgxp7rO6FhDdpRBovlkVJYGfAzY-3pL4";
 
 function serveData(data){
 	var incomingData = document.getElementById('incomingData');
