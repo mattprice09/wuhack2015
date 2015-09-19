@@ -7,7 +7,8 @@
 */
 var WEIGHT = {
 	'VOTES': 2.0,
-	'FAIRNESS': 1.2
+	'FAIRNESS': 1.2,
+	'POPULARITY': 1.5
 };
 
 function dataToSong(trackData){
@@ -16,8 +17,12 @@ function dataToSong(trackData){
 		trackData.title,
 		trackData.artist,
 		trackData.genre,
-		
+		getDeviceIP()
 	);
+	// ADD SPOTIFY GOODIES
+	song.popularity = trackData.popularity;
+	song.calculateScore()
+	return song;
 }
 
 /*--------------------------------------------*/
@@ -41,6 +46,7 @@ function Song(id, title, artist, genre, userID){
 Song.prototype.calculateScore = function(){
 	var newScore = 0;
 	newScore += this.getUsers().length * WEIGHT.VOTES;
+	newScore += this.popularity * WEIGHT.POPULARITY;
 	this.setScore(newScore);
 }
 
