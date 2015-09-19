@@ -1,8 +1,16 @@
 function getArtistData(data){
+	var genre = null;
+	// Handle Exceptions
+	if(data.genres.length == 0){
+		genre = 'none'; // Might need a new default value later
+	}
+	else{
+		genre = data.genres[0];
+	}
 	return {
 		'id': data.id,
 		'name': data.name,
-		'genre': data.genres[0]
+		'genre': genre
 	};
 }
 

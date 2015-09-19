@@ -38,7 +38,7 @@ function handleSearchData(searchData, type){
 			console.log('handle artist');
 			break;
 		case 'track':
-			console.log('handle track');
+			handleTrackData(searchData)
 			break;
 		default: 
 			console.log("ERROR: Ran out of handling cases.");
