@@ -29,6 +29,11 @@ Jukebox.prototype.update = function(){
 	rankings.innerHTML = this.toHTML();
 }
 
+Jukebox.prototype.clearForSearch = function(){
+	this.songs = [];
+	this.artists = [];
+}
+
 Jukebox.prototype.sort = function(){
 	this.songs.sort(function(a, b){
 		return sortSongsByScores(a, b);
