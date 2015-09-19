@@ -20,6 +20,7 @@ Jukebox.prototype.addToExistingSong = function(newSong){
 	for(var s = 0; s < this.songs.length; s++){
 		if(this.songs[s].getID() == newSong.getID()){
 			this.songs[s].addUsers([newSong.getUsers()[0]]);
+			this.songs[s].calculateScore();
 			songExists = true;
 		}
 	}
