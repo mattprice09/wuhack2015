@@ -13,7 +13,6 @@ function getDeviceIP() {
     for (i=0; hostipInfo.length >= i; i++) {
         ipAddress = hostipInfo[i].split(":");
         if ( ipAddress[0] == "IP" ){
-        	document.getElementById('userID').innerHTML = ipAddress[1];
         	return ipAddress[1];
         }
     }

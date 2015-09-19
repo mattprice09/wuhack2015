@@ -29,6 +29,8 @@
 
 	<textarea id="incomingData"></textarea>
 
+	<ul id="rankings"></ul>
+
 	<div id="player"><div>
 
 	<script type="text/javascript" src="utils.js"></script>
@@ -36,6 +38,8 @@
 	<script type="text/javascript" src="jukebox.js"></script>
 	<script type="text/javascript" src="song.js"></script>
 	<script type="text/javascript">
+
+		var jukebox = new Jukebox();
 
 		var rapNemesis = "3Fr6Wa1ap0Lv9KZ0lxGkiE";
 		var jennySong = "7eMpW9I1ZpVs6VQ90naDBh";
@@ -45,34 +49,7 @@
 		getTrack(takeOnMe);
 
 
-		var jukebox = new Jukebox();
-
-		jukebox.addSongs([new Song(
-			"a1",
-			"Never Gonna Give You Up",
-			"Rick Astley",
-			"Dank Memes",
-			"Vinesh"
-		)]);
-
-		jukebox.addSongs([new Song(
-			"b2",
-			"Smile",
-			"Portugal the Man",
-			"Alternative",
-			"Chloe"
-		)]);
-
-		jukebox.addSongs([new Song(
-			"b2",
-			"Smile",
-			"Portugal the Man",
-			"Alternative",
-			"Matt"
-		)]);
-
-		/*jukebox.sort();
-		document.write(jukebox);*/
+		
 
 	</script>
 

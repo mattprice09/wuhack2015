@@ -41,6 +41,14 @@ Jukebox.prototype.addToExistingSong = function(newSong){
 	return songExists;
 }
 
+Jukebox.prototype.toHTML = function(){
+	var listItems = "";
+	for(var s = 0; s < this.songs.length; s++){
+		listItems += '<li>' + this.songs[s] + '</li>';
+	}
+	return listItems;
+}
+
 Jukebox.prototype.toString = function(){
 	var string = "";
 	for(var s = 0; s < this.songs.length; s++){
