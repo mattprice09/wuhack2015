@@ -1,35 +1,68 @@
-function chooseFromResults(data){
-	console.log(data)
-	console.log(data.tracks)
-	console.log(data.tracks.items[0])
-	return data.tracks[0];
+function chooseFromResults(data, type){
+	var bestResult = null;
+	switch(type){
+		case 'artist':
+			console.log('choose an artist from schema!');
+			break;
+		case 'track':
+			bestResult = data.tracks.items[0];
+			break;
+		default: 
+			console.log("ERROR: Ran out of selection cases.");
+			break;
+	}
+	return bestResult;
 }
 
-function getSearchData(data){
-	var bestResult = chooseFromResults(data);
+function getSearchData(data, type){
+	var bestResult = chooseFromResults(data, type);
 	console.log(bestResult);
-	return {
-		'id': 0
-	};
+	var dataPacket = null;
+	switch(type){
+		case 'artist':
+			dataPacket = getArtistData(bestResult);
+			break;
+		case 'track':
+			dataPacket = getTrackData(bestResult);
+			break;
+		default: 
+			console.log("ERROR: Ran out of parsing cases.");
+			break;
+	}
+	return dataPacket;
 }
 
-function handleSearchData(searchData){
-
+function handleSearchData(searchData, type){
+	switch(type){
+		case 'artist':
+			console.log('handle artist');
+			break;
+		case 'track':
+			console.log('handle track');
+			break;
+		default: 
+			console.log("ERROR: Ran out of handling cases.");
+			break;
+	}
 }
 
 function getSearch(query, type){
 	$.ajax({
-		url: spotifyBase + 'v1/search?q=' + query + '&type=' + type,
+		url: spotifyBase + 'v1/search?q=' + formatQuery(query) + '&type=' + type,
 		beforeSend: function(xhr) {
 			xhr.setRequestHeader("Authorization", "Bearer " + bearer)
 		},
 		success: function(data){
 			console.log(data);
-			var searchData = getSearchData(data);
+			var searchData = getSearchData(data, type);
 			serveData(searchData);
-			handleSearchData(searchData);
+			handleSearchData(searchData, type);
 		}
 	});
 }
 
-getSearch('uptown+funk', 'track')
+function formatQuery(query){
+	return query.replace(' ', '+');
+}
+
+getSearch('uptown funk', 'track')
