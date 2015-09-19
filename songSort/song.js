@@ -1,10 +1,11 @@
-function Song(title, artist, genre){
+function Song(title, artist, genre, userID){
 	this.title = title;
 	this.artist = artist;
 	this.genre = genre;
-	this.users = 1;
+	this.users = [];
+	this.users.push(userID);
 }
 
 Song.prototype.toString = function(){
-	return '[' + this.users + '] ' + this.title + ' by ' + this.artist + ' (' + this.genre + ')';
+	return '[' + this.users.length + '] ' + this.title + ' by ' + this.artist + ' (' + this.genre + ')';
 }
