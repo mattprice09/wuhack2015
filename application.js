@@ -7,13 +7,9 @@ function getSongJSON(trackID){
 }
 
 function postTrack(trackID){
-<<<<<<< HEAD
 	//alert("POST: " + trackID + " TO SERVER.");
-
 	var track = getTrack(trackID);
 	addTrackToDB();
-=======
 	var json = getSongJSON(trackID);
 	alert("POST: " + json + " TO SERVER.");
->>>>>>> origin/master
 }
