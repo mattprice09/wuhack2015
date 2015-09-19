@@ -18,8 +18,8 @@ function Jukebox(){
 Jukebox.prototype.addToExistingSong = function(newSong){
 	var songExists = false;
 	for(var s = 0; s < this.songs.length; s++){
-		if(this.songs[s].getID() == newSong.getID){
-			songs[s].addUsers([newSong.getUsers()[0]]);
+		if(this.songs[s].getID() == newSong.getID()){
+			this.songs[s].addUsers([newSong.getUsers()[0]]);
 			songExists = true;
 		}
 	}
@@ -47,7 +47,10 @@ Jukebox.prototype.getSongs = function(){
 */
 Jukebox.prototype.addSongs = function(songs){
 	for(var s = 0; s < songs.length; s++){
-		this.songs.push(songs[s]);
+		var songExists = this.addToExistingSong(songs[s]);
+		if(!songExists){
+			this.songs.push(songs[s]);
+		}
 	}
 }
 
