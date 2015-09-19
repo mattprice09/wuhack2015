@@ -12,6 +12,20 @@ function Jukebox(){
 	this.songs = [];
 }
 
+/*
+* Song song: check jukebox for matches of this song
+*/
+Jukebox.prototype.addToExistingSong = function(newSong){
+	var songExists = false;
+	for(var s = 0; s < this.songs.length; s++){
+		if(this.songs[s].getID() == newSong.getID){
+			songs[s].addUsers([newSong.getUsers()[0]]);
+			songExists = true;
+		}
+	}
+	return songExists;
+}
+
 Jukebox.prototype.toString = function(){
 	var string = "";
 	for(var s = 0; s < this.songs.length; s++){
