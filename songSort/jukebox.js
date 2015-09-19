@@ -38,7 +38,7 @@ Jukebox.prototype.sort = function(){
 Jukebox.prototype.updateGenres = function(){
 	for(var s = 0; s < this.songs.length; s++){
 		if(this.songs[s].getGenre() == 'null'){
-			console.log(this.songs[s].artistID)
+			//console.log(this.songs[s].artistID)
 			if(this.artistLoaded(this.songs[s].artistID)){
 				var artist = this.getArtistById(this.songs[s].artistID);
 				this.songs[s].setGenre(artist.genre);

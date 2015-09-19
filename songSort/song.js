@@ -55,7 +55,7 @@ Song.prototype.calculateScore = function(){
 }
 
 Song.prototype.toString = function(){
-	return '[' + this.score + '] ' + this.title + ' by ' + this.artist + ' (' + this.genre + ')';
+	return '[' + this.score + '] ' + this.title + ' by ' + this.artist + ' (' + this.genre.toTitleCase() + ')';
 }
 
 /*--------------------------------------------*/

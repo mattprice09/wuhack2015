@@ -27,7 +27,7 @@ function Artist(id, name, genre){
 }
 
 Artist.prototype.toString = function(){
-	return '[' + this.popularity + ']' + this.name + '(' + this.genre + ')';
+	return '[' + this.popularity + ']' + this.name + '(' + this.genre.toTitleCase() + ')';
 }
 
 /*--------------------------------------------*/
