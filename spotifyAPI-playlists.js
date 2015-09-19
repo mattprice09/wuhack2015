@@ -1,3 +1,6 @@
+/*
+* Not sure if this function is working.
+*/
 function createPlaylist(eventTitle){
 	$.ajax({
 		type: "POST",
@@ -16,16 +19,24 @@ function createPlaylist(eventTitle){
 	});
 }
 
+function loadPlaylistPlayer(data){
+	var ownerID = data.owner.id;
+	var playlistID = data.id;
+	var player = document.getElementById('player');
+	player.innerHTML = '<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3A' + ownerID + '%3Aplaylist%3A' + playlistID + '" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>'
+}
+
 function getPlaylist(ownerID, playlistID){
 	$.ajax({
-		type: "POST",
-		url: spotifyBase + 'v1/users/' + ownerID + '/playlists/' + playlistID + '?market=ES',
+		type: "GET",
+		url: spotifyBase + 'v1/users/' + ownerID + '/playlists/' + playlistID,
 		beforeSend: function(xhr) {
 			xhr.setRequestHeader("Authorization", "Bearer " + bearer)
 			
 		},
 		success: function(data){
 			console.log(data);
+			loadPlaylistPlayer(data);
 		}
 	});
 }
