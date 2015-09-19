@@ -11,18 +11,10 @@
 /*---> FONTS <--------------------------------*/
 /*--------------------------------------------*/
 
-@fredokaOne: 'Fredoka One', cursive;
-@newsCycle: 'News Cycle', sans-serif;
+@oxygen: 'Oxygen', sans-serif;
 
-.FredokaOneFont(@textColor: white, @size: 1.25em){
-	font-family: @fredokaOne;
-	color: @textColor;
-	font-size: @size;
-	line-height: @size * 1.5;
-}
-
-.NewsCycleFont(@textColor: white, @size: 1.25em){
-	font-family: @newsCycle;
+.OxygenFont(@textColor: white, @size: 1.25em){
+	font-family: @oxygen;
 	color: @textColor;
 	font-size: @size;
 	line-height: @size * 1.5;
@@ -174,7 +166,7 @@ html{
 	overflow-y: scroll;
 	overflow-x: hidden;
 	background: @focusColor;
-	.NewsCycleFont(white, 1em);
+	.OxygenFont(white, 1em);
 }
 
 div.alert{
@@ -200,19 +192,19 @@ div#footer{
 
 p{
 	padding: @defaultPadding;
-	.NewsCycleFont(white, 1.25em);
+	.OxygenFont(white, 1.25em);
 	.Center();
 }
 
 h1{
 	padding: @defaultPadding;
-	.FredokaOneFont(white, 1.75em);
+	.OxygenFont(white, 1.75em);
 	.Center();
 }
 
 /*li{
 	background: @charcoal;
-	.NewsCycleFont(white, 1.25em);
+	.OxygenFont(white, 1.25em);
 	text-align: left;
 }*/
 
@@ -251,14 +243,14 @@ input, select, button{
 input, button{
 	background: transparent;
 	border: 0.5em solid white;
-	.NewsCycleFont(white, 1.25em);
+	.OxygenFont(white, 1.25em);
 	padding: 0 1em;
 	margin: 0.5em;
 	.PlaceHolder(@charcoal);
 }
 
 button{
-	.NewsCycleFont(white, 1.25em);
+	.OxygenFont(white, 1.25em);
 	// Based on tutorial from: stackoverflow.com/questions/17212094/fill-background-color-left-to-right-css
 	background: linear-gradient(to right, transparent 50%, @darkTone 50%);
 	background-size: 200% 100%;
@@ -296,7 +288,7 @@ button#submit2{
     line-height: 1.35;
     overflow: hidden;
     white-space: nowrap;
-    .NewsCycleFont(@focusColor, 1.25em);
+    .OxygenFont(@focusColor, 1.25em);
 }
 
 @scrollBar: rgba(255, 255, 255, 1.0);
