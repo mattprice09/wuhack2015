@@ -4,9 +4,6 @@
 	<title>Song Sorting Test</title>
 	<link rel="stylesheet" type="text/css" href="style/reset.css">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
-	<script type="text/javascript" src="spotifyAPI.js"></script>
-	<script type="text/javascript" src="jukebox.js"></script>
-	<script type="text/javascript" src="song.js"></script>
 	<style type="text/css">
 
 		textarea{
@@ -23,46 +20,15 @@
 
 	<textarea id="incomingData"></textarea>
 
+	<script type="text/javascript" src="spotifyAPI.js"></script>
+	<script type="text/javascript" src="jukebox.js"></script>
+	<script type="text/javascript" src="song.js"></script>
 	<script type="text/javascript">
-
-		var clientID = "afa826690fe04e05a65c5b92ec2bec26";
-		var clientSecret = "d19a4e03cd31497981aa0ee5aa891eeb";
-		var spotifyBase = "https://api.spotify.com/";
-		var bearer = "BQC65ap1YKqT7yUSOGWZZ0_drwd1DzLtX2dhPTKSjMp5qhvnIJds-fzCbKV4RNnQB86BlAxsBiZrSFPK_1U96qiSpcMyCdGXoW4kW6D9ZArEcJLjd0BarL4sTlP_eB0A2tosIKcp5VkiVVJB77fexNTV21eCFqW_XnDbw6qaQtCOQXUixpbe32gwixFP-e8_yzVqqlMlnopN9teLDMkPvZYZsR1BJU9iOPk8NbLqtFsiNJE4fougiVVV3BvvQogOTiyUWGXyJthxYynGG3dmz_mcvMKnxYR-nbbl587uBVo";
-		var incomingData = document.getElementById('incomingData');
-
-		function serveData(data){
-			var jsonData = JSON.stringify(data);
-			incomingData.value += jsonData + "\n";
-		}
-		
-		function getTrackData(data){
-			return {
-				'id': data.id,
-				'title': data.name,
-				'artists': data.artists[0].name,
-				'popularity': data.popularity
-			};
-		}
-
-		function getTrack(trackID){
-			$.ajax({
-				url: spotifyBase + 'v1/tracks/' + trackID,
-				beforeSend: function(xhr) {
-					xhr.setRequestHeader("Authorization", "Bearer " + bearer)
-				},
-				success: function(data){
-					var trackData = getTrackData(data);
-					serveData(trackData);
-				}
-			});
-		}
 
 		var rapNemesis = "3Fr6Wa1ap0Lv9KZ0lxGkiE";
 		var jennySong = "7eMpW9I1ZpVs6VQ90naDBh";
 		getTrack(rapNemesis);
 		getTrack(jennySong);
-
 
 
 		var jukebox = new Jukebox();

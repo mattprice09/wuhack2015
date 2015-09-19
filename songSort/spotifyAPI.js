@@ -18,6 +18,10 @@ function getTrackData(data){
 	};
 }
 
+function handleTrackData(trackData){
+	
+}
+
 function getTrack(trackID){
 	$.ajax({
 		url: spotifyBase + 'v1/tracks/' + trackID,
@@ -27,6 +31,7 @@ function getTrack(trackID){
 		success: function(data){
 			var trackData = getTrackData(data);
 			serveData(trackData);
+			handleTrackData(trackData);
 		}
 	});
 }
