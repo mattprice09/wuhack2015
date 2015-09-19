@@ -1,12 +1,14 @@
-function Song(title, artist, genre, userID){
-	// Input  Variables
-	this.title = title;
-	this.artist = artist;
-	this.genre = genre;
-	this.users = [];
-	this.users.push(userID || 'anonUser');
-	this.score = 0;
-}
+/*--------------------------------------------*/
+/*---> GLOBALS <------------------------------*/
+/*--------------------------------------------*/
+
+/*
+* Global weighting values for calculating song scores
+*/
+var WEIGHT = {
+	'VOTES': 2.0,
+	'FAIRNESS': 1.2
+};
 
 /*
 * This function can be passed into a sort function as a comparator when sorting an array of songs
@@ -16,6 +18,20 @@ function Song(title, artist, genre, userID){
 */
 function sortSongsByScores(song1, song2){
 	return song1.getScore() - song2.getScore();
+}
+
+/*--------------------------------------------*/
+/*---> SONG CLASS <---------------------------*/
+/*--------------------------------------------*/
+
+function Song(title, artist, genre, userID){
+	// Input  Variables
+	this.title = title;
+	this.artist = artist;
+	this.genre = genre;
+	this.users = [];
+	this.users.push(userID || 'anonUser');
+	this.score = 0;
 }
 
 Song.prototype.calculateScore = function(){
