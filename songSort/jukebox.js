@@ -13,6 +13,8 @@ function sortSongsByScores(song1, song2){
 }
 
 /*--------------------------------------------*/
+
+
 /*---> JUKEBOX CLASS <------------------------*/
 /*--------------------------------------------*/
 
@@ -37,8 +39,10 @@ Jukebox.prototype.updateGenres = function(){
 	for(var s = 0; s < this.songs.length; s++){
 		if(this.songs[s].getGenre() == 'null'){
 			console.log(this.songs[s].artistID)
-			var artist = this.getArtistById(this.songs[s].artistID);
-			this.songs[s].setGenre(artist.genre);
+			if(this.artistLoaded(this.songs[s].artistID)){
+				var artist = this.getArtistById(this.songs[s].artistID);
+				this.songs[s].setGenre(artist.genre);
+			}
 		}
 	}
 }
@@ -97,6 +101,16 @@ Jukebox.prototype.addSongs = function(songs){
 
 Jukebox.prototype.getArtists = function(){
 	return this.artists;
+}
+
+Jukebox.prototype.artistLoaded = function(artistID){
+	var loaded = false;
+	for(var a = 0; a < this.artists.length; a++){
+		if(this.artists[a].id == artistID){
+			loaded = true;
+		}
+	}
+	return loaded;
 }
 
 Jukebox.prototype.getArtistById = function(artistID){

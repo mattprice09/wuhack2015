@@ -86,7 +86,7 @@ Song.prototype.getGenre = function(){
 	return this.genre;
 }
 
-Song.prototype.setGenre = function(){
+Song.prototype.setGenre = function(genre){
 	this.genre = genre;
 }
 
