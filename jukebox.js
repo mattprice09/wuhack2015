@@ -70,8 +70,11 @@ Jukebox.prototype.addToExistingSong = function(newSong){
 Jukebox.prototype.toHTML = function(){
 	var html = "";
 	for(var s = 0; s < this.songs.length; s++){
-		//html += '<li class="songRank">' + this.songs[s] + '</li>';
-		html += '<div>' + getSongPlayer(this.songs[s].getID()) + '</div>';
+		html += '<div class="item">';
+		//html += '<li class="songRank">' + this.songs[s] + '</li>';\
+		html += '<button onclick="postTrack(&#39;' + this.songs[s].getID() + '&#39;);">+</button>';
+		html += getSongPlayer(this.songs[s].getID());
+		html += '</div>';
 	}
 	return html;
 }
