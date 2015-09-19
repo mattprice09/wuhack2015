@@ -3,10 +3,10 @@
 /*--------------------------------------------*/
 
 function dataToArtist(artistData){
-	var song = new Song(
+	var artist = new Artist(
 		artistData.id,
 		artistData.name,
-		artistData.genres[0]
+		artistData.genre
 	);
 	// ADD SPOTIFY GOODIES
 	artist.popularity = artistData.popularity;

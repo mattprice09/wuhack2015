@@ -13,18 +13,19 @@ function getTrackData(data){
 	return {
 		'id': data.id,
 		'title': data.name,
+		'artistsID': data.artists[0].id,
 		'artists': data.artists[0].name,
 		'popularity': data.popularity,
-		'genre': 'genre'
+		'genre': 'null'
 	};
 }
 
 function handleTrackData(trackData){
 	var song = dataToSong(trackData);
 	jukebox.addSongs([song]);
-	jukebox.sort();
-	var rankings = document.getElementById('rankings');
-	rankings.innerHTML = jukebox.toHTML();
+	/* Don't update jukebox until artist callback,
+	which was fired by song callback, is complete*/
+	//jukebox.update();
 }
 
 function getTrack(trackID){

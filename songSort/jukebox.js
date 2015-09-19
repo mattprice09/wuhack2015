@@ -18,12 +18,29 @@ function sortSongsByScores(song1, song2){
 
 function Jukebox(){
 	this.songs = [];
+	this.artists = []
+}
+
+Jukebox.prototype.update = function(){
+	this.sort();
+	var rankings = document.getElementById('rankings');
+	rankings.innerHTML = this.toHTML();
 }
 
 Jukebox.prototype.sort = function(){
 	this.songs.sort(function(a, b){
 		return sortSongsByScores(a, b);
 	});
+}
+
+Jukebox.prototype.updateGenres = function(){
+	for(var s = 0; s < this.songs.length; s++){
+		if(this.songs[s].getGenre() == 'null'){
+			console.log(this.songs[s].artistID)
+			var artist = this.getArtistById(this.songs[s].artistID);
+			this.songs[s].setGenre(artist.genre);
+		}
+	}
 }
 
 /*
@@ -75,6 +92,33 @@ Jukebox.prototype.addSongs = function(songs){
 		if(!songExists){
 			this.songs.push(songs[s]);
 		}
+	}
+}
+
+Jukebox.prototype.getArtists = function(){
+	return this.artists;
+}
+
+Jukebox.prototype.getArtistById = function(artistID){
+	var response = null;
+	for(var a = 0; a < this.artists.length; a++){
+		if(this.artists[a].id == artistID){
+			response = this.artists[a];
+		}
+	}
+	return response;
+}
+
+/*
+* Note that artists is an array of artists, be sure to wrap in [] brackets, even when pushing only a single artists
+*/
+Jukebox.prototype.addArtists = function(artists){
+	for(var a = 0; a < artists.length; a++){
+		//var songExists = this.addToExistingSong(artists[a]);
+		//TO-DO Create Artist equivalent of this ^
+		//if(!songExists){
+			this.artists.push(artists[a]);
+		//}
 	}
 }
 

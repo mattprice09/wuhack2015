@@ -15,10 +15,13 @@ function dataToSong(trackData){
 	var song = new Song(
 		trackData.id,
 		trackData.title,
+		trackData.artistsID,
 		trackData.artists,
 		trackData.genre,
 		getDeviceIP()
 	);
+	// Update Artist
+	getArtist(song.artistID);
 	// ADD SPOTIFY GOODIES
 	song.popularity = trackData.popularity;
 	song.calculateScore()
@@ -29,9 +32,10 @@ function dataToSong(trackData){
 /*---> SONG CLASS <---------------------------*/
 /*--------------------------------------------*/
 
-function Song(id, title, artist, genre, userID){
+function Song(id, title, artistID, artist, genre, userID){
 	this.id = id;
 	this.title = title;
+	this.artistID = artistID;
 	this.artist = artist;
 	this.genre = genre;
 	this.users = [];

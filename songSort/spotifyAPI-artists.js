@@ -7,7 +7,10 @@ function getArtistData(data){
 }
 
 function handleArtistData(artistData){
-
+	var artist = dataToArtist(artistData);
+	jukebox.addArtists([artist]);
+	jukebox.updateGenres();
+	jukebox.update();
 }
 
 function getArtist(artistID){
