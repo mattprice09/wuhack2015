@@ -32,14 +32,17 @@ function Song(title, artist, genre, userID){
 	this.users = [];
 	this.users.push(userID || 'anonUser');
 	this.score = 0;
+	this.calculateScore();
 }
 
 Song.prototype.calculateScore = function(){
-
+	var newScore = 0;
+	newScore += this.getUsers().length * WEIGHT.VOTES;
+	this.setScore(newScore);
 }
 
 Song.prototype.toString = function(){
-	return '[' + this.users.length + '] ' + this.title + ' by ' + this.artist + ' (' + this.genre + ')';
+	return '[' + this.score + '] ' + this.title + ' by ' + this.artist + ' (' + this.genre + ')';
 }
 
 /*--------------------------------------------*/
