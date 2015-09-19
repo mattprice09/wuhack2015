@@ -27,7 +27,6 @@ function chooseFromResults(data, type){
 
 function getSearchData(data, type){
 	var bestResult = chooseFromResults(data, type);
-	console.log(bestResult);
 	var dataPacket = null;
 	switch(type){
 		case 'artist':
@@ -64,7 +63,6 @@ function getSearch(query, type){
 			xhr.setRequestHeader("Authorization", "Bearer " + bearer)
 		},
 		success: function(data){
-			console.log(data);
 			var searchData = getSearchData(data, type);
 			serveData(searchData);
 			handleSearchData(searchData, type);
