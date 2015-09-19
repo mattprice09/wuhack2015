@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Song Sorting Test</title>
+	<script type="text/javascript" src="jukebox.js"></script>
 	<script type="text/javascript" src="song.js"></script>
 	<style type="text/css">
 
@@ -13,30 +14,33 @@
 
 	<script type="text/javascript">
 
-		var songs = [];
+		var jukebox = new Jukebox();
 
-		var song1 = new Song(
+		jukebox.addSongs([new Song(
+			"a1",
 			"Never Gonna Give You Up",
 			"Rick Astley",
 			"Dank Memes",
 			"Vinesh"
-		);
+		)]);
 
-		var song2 = new Song(
+		jukebox.addSongs([new Song(
+			"b2",
 			"Smile",
 			"Portugal the Man",
 			"Alternative",
 			"Chloe"
-		);
+		)]);
 
-		var song3 = new Song(
+		jukebox.addSongs([new Song(
+			"b2",
 			"Smile",
 			"Portugal the Man",
 			"Alternative",
 			"Matt"
-		);
+		)]);
 
-		document.write(song1);
+		document.write(jukebox);
 
 	</script>
 

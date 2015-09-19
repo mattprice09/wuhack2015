@@ -24,8 +24,8 @@ function sortSongsByScores(song1, song2){
 /*---> SONG CLASS <---------------------------*/
 /*--------------------------------------------*/
 
-function Song(title, artist, genre, userID){
-	// Input  Variables
+function Song(id, title, artist, genre, userID){
+	this.id = id;
 	this.title = title;
 	this.artist = artist;
 	this.genre = genre;
@@ -48,6 +48,10 @@ Song.prototype.toString = function(){
 /*--------------------------------------------*/
 /*---> GETTERS & SETTERS <--------------------*/
 /*--------------------------------------------*/
+
+Song.prototype.getID = function(){
+	return this.id;
+}
 
 Song.prototype.getTitle = function(){
 	return this.title;
@@ -80,7 +84,7 @@ Song.prototype.getUsers = function(){
 /*
 * Note that userID is an array of userIDs, be sure to wrap in [] brackets, even when pushing only a single userID
 */
-Song.prototype.addUser = function(userID){
+Song.prototype.addUsers = function(userID){
 	for(var u = 0; u < userID.length; u++){
 		this.users.push(userID[u]);
 	}
