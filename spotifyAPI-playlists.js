@@ -19,9 +19,13 @@ function createPlaylist(eventTitle){
 	});
 }
 
-function loadPlaylistPlayer(data){
+function handlePlaylist(data){
 	var ownerID = data.owner.id;
 	var playlistID = data.id;
+	loadPlaylistPlayer(ownerID, playlistID);
+}
+
+function loadPlaylistPlayer(ownerID, playlistID){
 	var player = document.getElementById('player');
 	player.innerHTML = '<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3A' + ownerID + '%3Aplaylist%3A' + playlistID + '" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>'
 }
@@ -36,13 +40,28 @@ function getPlaylist(ownerID, playlistID){
 		},
 		success: function(data){
 			console.log(data);
-			loadPlaylistPlayer(data);
+			handlePlaylist(data);
 		}
 	});
 }
 
-/*var owner = "1285594060";
-var playlist = "2r7tkFG3aLznuVaLTyaIcb";*/
-var owner = "unisound.wuhack2015";
-var playlist = "7htvGA5RQkm69Z5UsqjV2U";
+function addTrackToPlaylist(ownerID, playlistID, trackID){
+	$.ajax({
+		type: "POST",
+		url: spotifyBase + 'v1/users/' + ownerID + '/playlists/' + playlistID + '/tracks?position=0&uris=spotify%3Atrack%3A' + trackID,
+		beforeSend: function(xhr) {
+			xhr.setRequestHeader("Authorization", "Bearer " + bearer)
+			
+		},
+		success: function(data){
+			console.log(data);
+			loadPlaylistPlayer(ownerID, playlistID);
+		}
+	});
+}
+
+var owner = "1285594060";
+var playlist = "2r7tkFG3aLznuVaLTyaIcb";
 getPlaylist(owner, playlist);
+var rapNemesis = "3Fr6Wa1ap0Lv9KZ0lxGkiE"
+addTrackToPlaylist(owner, playlist, rapNemesis);
