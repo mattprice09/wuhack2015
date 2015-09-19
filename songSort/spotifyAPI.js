@@ -11,8 +11,8 @@ function serveData(data){
 
 function sendToPlayer(trackID){
 	var player = document.getElementById('player');
-	var iframe = '<iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A' + trackID + '" width="100%" height="200" frameborder="0" allowtransparency="true"></iframe>';
-	player.innerHTML = iframe;
+	var iframe = '<iframe class="iframePlayer" src="https://embed.spotify.com/?uri=spotify%3Atrack%3A' + trackID + '" frameborder="0" allowtransparency="true"></iframe>';
+	player.innerHTML += iframe;
 }
 
 function getTrackData(data){
@@ -20,7 +20,8 @@ function getTrackData(data){
 		'id': data.id,
 		'title': data.name,
 		'artists': data.artists[0].name,
-		'popularity': data.popularity
+		'popularity': data.popularity,
+		'genre': data.artists[0].genre[0];
 	};
 }
 

@@ -10,6 +10,16 @@ var WEIGHT = {
 	'FAIRNESS': 1.2
 };
 
+function dataToSong(trackData){
+	var song = new Song(
+		trackData.id,
+		trackData.title,
+		trackData.artist,
+		trackData.genre,
+		
+	);
+}
+
 /*--------------------------------------------*/
 /*---> SONG CLASS <---------------------------*/
 /*--------------------------------------------*/
@@ -21,6 +31,9 @@ function Song(id, title, artist, genre, userID){
 	this.genre = genre;
 	this.users = [];
 	this.users.push(userID || 'anonUser');
+	// FROM SPOTIFY
+	this.popularity = 0;
+	// FROM SPOTIFY
 	this.score = 0;
 	this.calculateScore();
 }

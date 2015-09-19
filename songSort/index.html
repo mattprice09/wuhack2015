@@ -8,10 +8,19 @@
 
 		textarea{
 			width: 100%;
-			height: 300px;
+			height: 100px;
 			border: none;
 			background: #1A1A1A;
 			color: white;
+		}
+
+		div#player{
+			margin: 0;
+		}
+
+		.iframePlayer{
+			width: 100%;
+			height: 80px;
 		}
 
 	</style>
@@ -22,6 +31,7 @@
 
 	<div id="player"><div>
 
+	<script type="text/javascript" src="utils.js"></script>
 	<script type="text/javascript" src="spotifyAPI.js"></script>
 	<script type="text/javascript" src="jukebox.js"></script>
 	<script type="text/javascript" src="song.js"></script>
@@ -29,8 +39,10 @@
 
 		var rapNemesis = "3Fr6Wa1ap0Lv9KZ0lxGkiE";
 		var jennySong = "7eMpW9I1ZpVs6VQ90naDBh";
+		var takeOnMe = "2WfaOiMkCvy7F5fcp2zZ8L";
 		getTrack(rapNemesis);
 		getTrack(jennySong);
+		getTrack(takeOnMe);
 
 
 		var jukebox = new Jukebox();
