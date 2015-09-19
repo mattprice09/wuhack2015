@@ -10,13 +10,16 @@ function alreadyExistsCallBack(nTrck, exists) {
             });
             
         } else {
-            tracks.push(nTrck);
+            tracks.set(nTrck);
         }
 }
 
-function addTrackToDB(nTrck) {
+function addTrackToDB() {
     tracks.child(nTrck['id']).once('value', function(snapshot)) {
         var exists = (snapshot.val() != null);
         alreadyExistsCallBack(nTrck, exists);
+        
+        alert("It doesn't exist!");
+        
 });
 }
