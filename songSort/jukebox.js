@@ -42,11 +42,12 @@ Jukebox.prototype.addToExistingSong = function(newSong){
 }
 
 Jukebox.prototype.toHTML = function(){
-	var listItems = "";
+	var html = "";
 	for(var s = 0; s < this.songs.length; s++){
-		listItems += '<li>' + this.songs[s] + '</li>';
+		html += '<li class="songRank">' + this.songs[s] + '</li>';
+		html += '<li>' + getSongPlayer(this.songs[s].getID()) + '</li>';
 	}
-	return listItems;
+	return html;
 }
 
 Jukebox.prototype.toString = function(){

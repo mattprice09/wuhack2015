@@ -15,7 +15,7 @@ function dataToSong(trackData){
 	var song = new Song(
 		trackData.id,
 		trackData.title,
-		trackData.artist,
+		trackData.artists,
 		trackData.genre,
 		getDeviceIP()
 	);
