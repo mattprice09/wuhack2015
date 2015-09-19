@@ -1,3 +1,14 @@
+function sendSearchQuery(){
+	var searchBar = document.getElementById('searchBar');
+	var query = sanitize(searchBar.value);
+	getSearch(query, 'track');
+}
+
+function sanitize(input){
+	var query = input.toLowerCase();
+	return query;
+}
+
 function chooseFromResults(data, type){
 	var bestResult = null;
 	switch(type){
@@ -64,5 +75,3 @@ function getSearch(query, type){
 function formatQuery(query){
 	return query.replace(' ', '+');
 }
-
-getSearch('uptown funk', 'track')
