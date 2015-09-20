@@ -27,7 +27,7 @@ function handlePlaylist(data){
 
 function loadPlaylistPlayer(ownerID, playlistID){
 	var player = document.getElementById('player');
-	player.innerHTML = '<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3A' + ownerID + '%3Aplaylist%3A' + playlistID + '" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>'
+	player.innerHTML = '<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3A' + ownerID + '%3Aplaylist%3A' + playlistID + '" width="100%" height="380" theme="white" frameborder="0" allowtransparency="true"></iframe>'
 	console.log('<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3A' + ownerID + '%3Aplaylist%3A' + playlistID + '" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
 }
 
@@ -61,8 +61,8 @@ function addTrackToPlaylist(ownerID, playlistID, trackID){
 	});
 }
 
-var owner = "1285594060";
+/*var owner = "1285594060";
 var playlist = "2r7tkFG3aLznuVaLTyaIcb";
 getPlaylist(owner, playlist);
-/*var rapNemesis = "3Fr6Wa1ap0Lv9KZ0lxGkiE"
+var rapNemesis = "3Fr6Wa1ap0Lv9KZ0lxGkiE"
 addTrackToPlaylist(owner, playlist, rapNemesis);*/
