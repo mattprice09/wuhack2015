@@ -21,7 +21,7 @@ function chooseFromResults(data, type){
 		case 'track':
 			for(var t = 0; t < SEARCH_LIMIT; t++){
 				results.push(data.tracks.items[t]);
-				console.log('queried: ' + data.tracks.items[t].name);
+				//console.log('queried: ' + data.tracks.items[t].name);
 			}
 			break;
 		default: 
