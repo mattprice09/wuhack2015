@@ -19,7 +19,7 @@
 		}
 
 		body{
-			width: 90%;
+			width: 100%;
 			margin: 0 auto;
 		}
 
@@ -50,19 +50,28 @@
 
 	<textarea id="incomingData"></textarea>
 
-	<p><span class="fancy">UniSound.</span> The intelligent group playlist.</p>
-
-	<button class="homeButton" onclick="window.location='user.html'">
-		<img src="style/join.png" />
-	</button>
-
-	<button class="homeButton" onclick="window.location='host.html'">
-		<img src="style/host.png" />
-	</button>
-
 	<div class="alert" style="display: none;">
 		<p>Hello!</p>
 		<button onclick="closeAlerts();">Close</button>
+	</div>
+
+	<div class="pane" id="welcome">
+
+		<p><span class="fancy">UniSound.</span> The intelligent group playlist.</p>
+
+		<div>
+			<button class="homeButton" onclick="window.location='user.html'">
+				<img src="style/join.png" />
+			</button>
+			<button class="homeButton" onclick="window.location='host.html'">
+				<img src="style/host.png" />
+			</button>
+		</div>
+
+	</div>
+
+	<div class="pane" id="features">
+		<p>Features and shit, motherfucker.</p>
 	</div>
 
 	<script type="text/javascript" src="utils.js"></script>
