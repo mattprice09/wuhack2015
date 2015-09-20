@@ -3,9 +3,16 @@
 /*--------------------------------------------*/
 
 function playQueue(){
-	setInterval(function () {
+	jukebox.play();
+	var playInterval = setInterval(function(){
 		jukebox.play();
+		if(jukebox.songs.length == 0){
+			stopPlaying();
+		}
 	}, 10000);
+	function stopPlaying(){
+		clearInterval(playInterval);
+	}
 }
 
 /*
