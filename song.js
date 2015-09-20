@@ -2,15 +2,6 @@
 /*---> GLOBALS <------------------------------*/
 /*--------------------------------------------*/
 
-/*
-* Global weighting values for calculating song scores
-*/
-var WEIGHT = {
-	'VOTES': 2.0,
-	'FAIRNESS': 1.2,
-	'POPULARITY': 1.5
-};
-
 function previewSong(previewLink){
 	var source = '<audio autoplay><source src="' + previewLink + '"></source></audio>';
 	var previewPlayer = document.getElementById('previewPlayer');
@@ -87,14 +78,14 @@ Song.prototype.toHTML = function(type){
 		html += '<div class="songWrapper" onclick="previewSong(&#39;' + this.preview + '&#39;);">';
 		//html += '<div class="trackSelector">&#9834;+</div>';
 		html += '<img class="albumPicture" src="' + this.image + '" onclick="postTrack(&#39;' + this.getID() + '&#39;);">'
-		html += '<div class="songResult"><h2>' + this.title + '[' + this.score + ']' + '</h2><h3>' + this.artist + '</h3></div>';
+		html += '<div class="songResult"><h2>' + this.title + ' [' + this.score + ']' + '</h2><h3>' + this.artist + ', ' + this.genre + '</h3></div>';
 		html += '</div>';
 	}
 	else if(type == 'q'){
 		html += '<div class="songWrapper">';
 		//html += '<div class="trackSelector">&#9834;+</div>';
 		html += '<img class="albumPicture" src="' + this.image + '">'
-		html += '<div class="songResult"><h2>' + this.title + '</h2><h3>' + this.artist + '</h3></div>';
+		html += '<div class="songResult"><h2>' + this.title + ' [' + this.score + ']' + '</h2><h3>' + this.artist + ', ' + this.genre + '</h3></div>';
 		var icon = 'X';
 		if(this.isLocked){
 			icon = '&#128274;';

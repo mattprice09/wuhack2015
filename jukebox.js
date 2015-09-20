@@ -2,7 +2,16 @@
 /*---> GLOBALS <------------------------------*/
 /*--------------------------------------------*/
 
-var PLAY_TIME = 5; // In Seconds
+/*
+* Global weighting values for calculating song scores
+*/
+var WEIGHT = {
+	'VOTES': 2.0,
+	'FAIRNESS': 1.0,
+	'POPULARITY': 1.5
+};
+
+var PLAY_TIME = 10; // In Seconds
 
 function playQueue(){
 	jukebox.play();
@@ -19,6 +28,7 @@ function playQueue(){
 function removeFromQueue(trackID){
 	for(var s = 0; s < jukebox.songs.length; s++){
 		if(jukebox.songs[s].getID() == trackID){
+			deleteSong(jukebox.songs[s].getID());
 			jukebox.songs.splice(s, 1);
 		}
 	}
@@ -50,6 +60,7 @@ function Jukebox(name, id, state){
 
 Jukebox.prototype.play = function(){
 	previewSong(this.songs[0].preview);
+	deleteSong(this.songs[0].getID());
 	this.songs.splice(0, 1);
 	setTimeout(function(){
 		jukebox.update('q');
