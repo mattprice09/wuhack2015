@@ -40,8 +40,9 @@ function joinParty(){
 	var currentParty = document.getElementById('currentParty');
 	// Check if partyID is valid or not
 	jukebox.partyID = partyInput.value;
-	instruct("Click the song for a preview, and the album cover to submit to the group!");
-	currentParty.innerHTML = "Sending songs to " + partyID.value;
+	instruct("Click the song for a preview and click the album cover to submit to the group!");
+	currentParty.innerHTML = "Sending songs to " + partyID.value + ". Click to change parties.";
+	currentParty.style.display = 'block';
 }
 
 /*
