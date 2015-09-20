@@ -230,7 +230,7 @@ div#rankings{
 			padding: 0;
 			margin: 0;
 			z-index: 10;
-			border: 0.25em solid @focusColor;
+			border: 10px solid @focusColor;
 			color: @focusColor;
 			font-size: 50px;
 			font-weight: 700;
@@ -242,7 +242,7 @@ div#rankings{
 			background: rgba(255, 255, 255, 0.5)
 		}
 
-		iframe{
+		iframe, div.songResult{
 			display: inline-block;
 			width: 100%;
 			height: 80px;
@@ -250,6 +250,16 @@ div#rankings{
 			z-index: 5;
 		}
 
+	}
+
+	div.songResult{
+		background: white;
+		color: @charcoal;
+	}
+
+	img.albumPicture{
+		width: 80px;
+		height: 80px;
 	}
 
 }

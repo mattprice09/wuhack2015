@@ -24,6 +24,7 @@ function dataToSong(trackData){
 	getArtist(song.artistID);
 	// ADD SPOTIFY GOODIES
 	song.popularity = trackData.popularity;
+	song.image = trackData.image;
 	song.calculateScore()
 	return song;
 }
@@ -42,6 +43,7 @@ function Song(id, title, artistID, artist, genre, userID){
 	this.users.push(userID || 'anonUser');
 	// FROM SPOTIFY
 	this.popularity = 0;
+	this.image = 'null';
 	// FROM SPOTIFY
 	this.score = 0;
 	this.calculateScore();
@@ -56,6 +58,24 @@ Song.prototype.calculateScore = function(){
 
 Song.prototype.toString = function(){
 	return '[' + this.score + '] ' + this.title + ' by ' + this.artist + ' (' + this.genre.toTitleCase() + ')';
+}
+
+Song.prototype.toHTML = function(spotifyPlayer){
+	var html = '';
+	if(spotifyPlayer){
+		html += '<div class="item">';
+		html += '<button onclick="postTrack(&#39;' + this.getID() + '&#39;);">+</button>';
+		html += getSongPlayer(this.getID());
+		html += '</div>';
+	}
+	else{
+		html += '<div class="item">';
+		html += '<button onclick="postTrack(&#39;' + this.getID() + '&#39;);">+</button>';
+		html += '<div class="songResult">' + this.title + '</div>';
+		html += '<img class="albumPicture" src="' + this.image + '">'
+		html += '</div>';
+	}
+	return html;
 }
 
 /*--------------------------------------------*/
