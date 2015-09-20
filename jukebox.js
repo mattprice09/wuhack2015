@@ -25,6 +25,12 @@ function Jukebox(name, id){
 	this.artists = []
 }
 
+Jukebox.prototype.play = function(){
+	for(var s = 0; s < this.songs.length; s++){
+		previewSong(this.songs[s].preview);
+	}
+}
+
 Jukebox.prototype.update = function(){
 	this.sort();
 	var rankings = document.getElementById('rankings');

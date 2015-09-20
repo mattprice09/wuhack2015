@@ -54,6 +54,7 @@ function Song(id, title, artistID, artist, genre, userID){
 	this.genre = genre;
 	this.users = [];
 	this.users.push(userID || 'anonUser');
+	this.isLocked = false;
 	// FROM SPOTIFY
 	this.popularity = 0;
 	this.image = 'null';
