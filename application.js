@@ -47,7 +47,7 @@ ref.on("value", function(snapshot) {
     jukebox.addSongs(songs);
 //    console.log("after addsong");
 }, function(errorObject) {
-    console.log("The read failed");
+//    console.log("The read failed");
 });
 
 function getSongJSON(trackID){
