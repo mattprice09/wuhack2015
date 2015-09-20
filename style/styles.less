@@ -249,6 +249,16 @@ div#party, div#search{
 
 	}
 
+	div#currentParty{
+		display: none;
+		height: 4.5em;
+		width: 100% - 10em;
+		background: @charcoal;
+		position: absolute;
+		z-index: 10;
+		line-height: 4.5em;
+	}
+
 }
 
 div#search{
@@ -260,7 +270,6 @@ p.instructions{
 	font-size: 1.5em;
 	line-height: 2em;
 	height: 2em;
-	overflow: hidden;
 }
 
 div#rankings{
@@ -307,7 +316,7 @@ div#rankings{
 div.songWrapper{
 
 	@wrapperHeight: 6em;
-	.FullWidth();
+	width: 100% - 1.5em;
 	background: @charcoal;
 	height: @wrapperHeight;
 	display: inline-block;
