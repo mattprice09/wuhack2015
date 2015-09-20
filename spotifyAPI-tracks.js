@@ -13,8 +13,8 @@ function getTrackData(data){
 	return {
 		'id': data.id,
 		'title': data.name,
-		'artistID': data.artist[0].id,
-		'artist': data.artist[0].name,
+		'artistID': data.artists[0].id,
+		'artist': data.artists[0].name,
 		'popularity': data.popularity,
 		'genre': 'null',
 		'image': data.album.images[0].url,
