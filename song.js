@@ -15,7 +15,7 @@ function previewSong(previewLink){
 	var source = '<audio autoplay><source src="' + previewLink + '"></source></audio>';
 	var previewPlayer = document.getElementById('previewPlayer');
 	previewPlayer.innerHTML = source;
-	previewPlayer.innerHTML += '<button onclick="stopPreview();">Stop Preview</button>';
+	previewPlayer.innerHTML += '<button id="stopButton" onclick="stopPreview();">Stop Preview</button>';
 }
 
 function stopPreview(){
@@ -75,19 +75,27 @@ Song.prototype.toString = function(){
 	return '[' + this.score + '] ' + this.title + ' by ' + this.artist + ' (' + this.genre.toTitleCase() + ')';
 }
 
-Song.prototype.toHTML = function(spotifyPlayer){
+Song.prototype.toHTML = function(type){
 	var html = '';
-	if(spotifyPlayer){
+	if(type == 's'){
 		html += '<div class="item">';
 		html += '<button onclick="postTrack(&#39;' + this.getID() + '&#39;);">+</button>';
 		html += getSongPlayer(this.getID());
 		html += '</div>';
 	}
-	else{
+	else if(type == 'r'){
 		html += '<div class="songWrapper" onclick="previewSong(&#39;' + this.preview + '&#39;);">';
 		//html += '<div class="trackSelector">&#9834;+</div>';
 		html += '<img class="albumPicture" src="' + this.image + '" onclick="postTrack(&#39;' + this.getID() + '&#39;);">'
 		html += '<div class="songResult"><h2>' + this.title + '</h2><h3>' + this.artist + '</h3></div>';
+		html += '</div>';
+	}
+	else if(type == 'q'){
+		html += '<div class="songWrapper">';
+		//html += '<div class="trackSelector">&#9834;+</div>';
+		html += '<img class="albumPicture" src="' + this.image + '">'
+		html += '<div class="songResult"><h2>' + this.title + '</h2><h3>' + this.artist + '</h3></div>';
+		html += '<button onclick="removeFromQueue(&#39;' + this.id + '&#39;)">X</button>';
 		html += '</div>';
 	}
 	return html;
