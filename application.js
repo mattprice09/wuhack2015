@@ -19,15 +19,12 @@ var getNewID = function() {
     });
 };
 
-// NEED TO ADD A PARAMETER AND ACCESS IT
-var fetchID = function() {
-    ref.child("id").once("value", function(data) {
-        if (data != null) {
-            return data.val().toString(16);
-        } else return null;
-    });
+
+var fetchName = function(jukeID) {
+    
 }
 
+// Instantiates jukebox in database
 var createJukebox = function() {
     getNewID();
     incrementID();
