@@ -192,7 +192,7 @@ Jukebox.prototype.addArtists = function(artists){
 		//var songExists = this.addToExistingSong(artists[a]);
 		//TO-DO Create Artist equivalent of this ^
 		//if(!songExists){
-			this.artist.push(artist[a]);
+			this.artist.push(artists[a]);
 		//}
 	}
 }
