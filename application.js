@@ -41,6 +41,7 @@ ref.on("value", function(snapshot) {
 	    songs.push(dataToSong(snapshotObj[key]));
 	}
     }
+    Console.log(songs[0] + "......this is the one");
 
     jukebox.addSongs(songs);
 
