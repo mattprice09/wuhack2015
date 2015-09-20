@@ -6,7 +6,7 @@
 * Global weighting values for calculating song scores
 */
 var WEIGHT = {
-	'VOTES': 2.0,
+	'VOTES': 40.0,
 	'FAIRNESS': 1.0,
 	'POPULARITY': 1.5
 };
