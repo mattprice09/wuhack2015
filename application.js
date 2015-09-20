@@ -25,27 +25,26 @@ var readAll = function(callback) {
     });
 };
 
-var updateAll = function(callback) {
+/*var updateAll = function(callback) {
     ref.on("value", function(snapshot)) {
         Console.log(snapshot);
     }
-};
+};*/
 
-// update the host when a new song is added
+// Update all when value is changed
 ref.on("value", function(snapshot) {
 //    console.log("This is the snapshot of songs");
     var snapshotObj = snapshot.child("songs").val();
     var songs = [];
     for (var key in snapshotObj) {
 	if (snapshotObj.hasOwnProperty(key)) {
-//	    console.log(key + "->" + snapshotObj[key].title);
 	    songs.push(dataToSong(snapshotObj[key]));
 	}
     }
-//    console.log(songs);
+    Console.log(songs[0] + "......this is the one");
 
     jukebox.addSongs(songs);
-//    console.log("after addsong");
+
 }, function(errorObject) {
     console.log("The read failed");
 });
@@ -61,5 +60,6 @@ function getSongJSON(trackID){
 // write a track to the DB
 function postTrack(trackID){
     var json = getSongJSON(trackID);
+    json.isQuery = false;
     addSong(json);
 }

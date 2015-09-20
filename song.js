@@ -23,6 +23,7 @@ function dataToSong(trackData){
 		trackData.genre,
 		getDeviceIP()
 	);
+	song.isQuery = true;
 	// Update Artist
 	getArtist(song.artistID);
 	// ADD SPOTIFY GOODIES
@@ -46,6 +47,7 @@ function Song(id, title, artistID, artist, genre, userID){
 	this.users = [];
 	this.users.push(userID || 'anonUser');
 	this.isLocked = false;
+	this.isQuery = false;
 	// FROM SPOTIFY
 	this.popularity = 0;
 	this.image = 'null';
@@ -74,14 +76,14 @@ Song.prototype.toHTML = function(type){
 		html += getSongPlayer(this.getID());
 		html += '</div>';
 	}
-	else if(type == 'r'){
+	else if(type == 'r' && this.isQuery){
 		html += '<div class="songWrapper" onclick="previewSong(&#39;' + this.preview + '&#39;);">';
 		//html += '<div class="trackSelector">&#9834;+</div>';
 		html += '<img class="albumPicture" src="' + this.image + '" onclick="postTrack(&#39;' + this.getID() + '&#39;);">'
 		html += '<div class="songResult"><h2>' + this.title + ' <span class="songScore">' + this.score + '</span>' + '</h2><h3>' + this.artist + ', ' + this.genre + '</h3></div>';
 		html += '</div>';
 	}
-	else if(type == 'q'){
+	else if(type == 'q' && !(this.isQuery)){
 		html += '<div class="songWrapper">';
 		//html += '<div class="trackSelector">&#9834;+</div>';
 		html += '<img class="albumPicture" src="' + this.image + '">'

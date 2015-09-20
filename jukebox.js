@@ -6,7 +6,7 @@
 * Global weighting values for calculating song scores
 */
 var WEIGHT = {
-	'VOTES': 2.0,
+	'VOTES': 40.0,
 	'FAIRNESS': 1.0,
 	'POPULARITY': 1.5
 };
@@ -55,7 +55,7 @@ function Jukebox(name, id, state){
 	this.songs = [];
 	this.artist = [];
 	this.state = state; //one character to indicate type for update() calls
-	readAll()
+	readAll();
 }
 
 Jukebox.prototype.play = function(){
@@ -87,7 +87,14 @@ Jukebox.prototype.update = function(type){
 }
 
 Jukebox.prototype.clearForSearch = function(){
-	this.songs = [];
+	for(var s = 0; s < this.songs.length; s++){
+		if(this.songs[s].isQuery()){
+			/* Do not call deleteSong(trackID) from application.js
+			 * because a query song should only exist in the client's
+			 * jukebox. Don't accidentally delete a real instance. */
+			this.songs.splice(s, 1);
+		}
+	}
 	this.artist = [];
 }
 
