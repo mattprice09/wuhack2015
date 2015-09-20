@@ -21,7 +21,13 @@ var getNewID = function() {
 
 
 var fetchName = function(jukeID) {
-    
+    ref.endAt().on("child_added", function(snapshot) {
+        if (snapshot.val().get("jbID") == jukeID) {
+            return snapshot.val().get("name");
+        } else {
+            return null;
+        }
+    });
 }
 
 // Instantiates jukebox in database
@@ -97,8 +103,10 @@ function postTrack(trackID){
     addSong(json);
 }
 
-function setIDnum() {
-    songsRef.remove("ignoreme");
+/**function setIDnum() {
+    ref.child("jukebox").child("boxID").update ({
+        
+    });
 }
 
-//setIDnum();
+setIDnum();*/
