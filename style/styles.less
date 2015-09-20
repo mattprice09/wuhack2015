@@ -240,11 +240,11 @@ div#party, div#search{
 	div#previewPlayer{
 
 		button{
-			width: 12em;
+			width: 100%;
 			font-size: 1.5em;
 			height: 2em;
 			line-height: 1.5em;
-			.Center();
+			margin: 1em auto;
 		}
 
 	}
@@ -257,6 +257,17 @@ div#party, div#search{
 		position: absolute;
 		z-index: 10;
 		line-height: 4.5em;
+	}
+
+	button.partyOptions{
+		display: none;
+		position: absolute;
+		float: right;
+		z-index: 15;
+		width: 3em;
+		height: 3em;
+		border: none;
+		margin-top: 0;
 	}
 
 }

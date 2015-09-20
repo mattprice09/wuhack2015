@@ -51,7 +51,10 @@
 			<button id="joinParty" onclick="joinParty();">
 				<img src="style/party.png" />
 			</button>
-			<div id="currentParty" onclick="this.style.display='none';"></div>
+			<div id="currentParty" onclick="this.style.display='none';document.getElementById('voteButton').style.display='none';"></div>
+			<button class="partyOptions" id="voteButton" onclick="vote();">
+				<img src="style/upvote.png" />
+			</button>
 	</div>
 
 	<p class="instructions" id="instruct">Enter the code given to you by your party host or start browsing music below.</p>
