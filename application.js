@@ -1,7 +1,7 @@
 /* DB API */
 // get a reference of the database
 var ref = new Firebase("https://amber-torch-7758.firebaseio.com");
-var songsRef = new Firebase("https://amber-torch-7758.firebaseio.com/songs");
+var DBRef = new Firebase("https://amber-torch-7758.firebaseio.com/songs");
 
 // init
 var initID = function() {
@@ -48,6 +48,8 @@ var readAll = function(callback) {
 var addJukebox = function() {
 
 };
+
+
 
 
 
