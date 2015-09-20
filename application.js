@@ -36,9 +36,12 @@ var fetchName = function(jukeID) {
 
 var addUser = function(songID) {
     songsRef.child(songID).once("value", function(data) {
-        songsRef.child(songID).update({users: data.val() + 1});
+        console.log(data);
+        songsRef.child(songID).update({users: data.child("users").val() + 1});
     });
 }
+
+// ADD GETUSERS HERE
 
 // Instantiates jukebox in database
 var createJukebox = function() {
