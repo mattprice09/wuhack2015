@@ -146,6 +146,40 @@ Jukebox.prototype.updateGenres = function(){
 	}
 }
 
+Jukebox.prototype.countGenres = function(){
+	var genreCounter = [{
+		'genre': 'genre',
+		'count': 0
+	}];
+	for(var s = 0; s < this.songs.length; s++){
+		for(var g = 0; g < genreCounter.length; g++){
+			if(genreCounter[g].genre == this.songs[s].genre){
+				genreCounter[g].count++;
+			}
+			else if(this.songs[s].genre != 'none'){
+				genreCounter.push({
+					'genre': this.songs[s].genre,
+					'count': 1
+				});
+			}
+		}
+	}
+	/*for(var a = 0; a < this.artist.length; a++){
+		for(var g = 0; g < genreCounter.length; g++){
+			if(genreCounter[g].genre == this.artist[a].genre){
+				genreCounter[g].count++;
+			}
+			else if(this.artist[a].genre != 'none'){
+				genreCounter.push({
+					'genre': this.artist[a].genre,
+					'count': 1
+				});
+			}
+		}
+	}*/
+	return genreCounter;
+}
+
 /*
 * Song song: check jukebox for matches of this song
 */
