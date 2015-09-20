@@ -1,24 +1,13 @@
 /* DB API */
 // get a reference of the database
 var ref = new Firebase("https://amber-torch-7758.firebaseio.com");
-var DBRef = new Firebase("https://amber-torch-7758.firebaseio.com/songs");
+var songsRef = new Firebase("https://amber-torch-7758.firebaseio.com/songs");
 
-// init
-var initID = function() {
-    ref.update({"id": 1});
-};
-
-var increamentID = function() {
+var incrementID = function() {
     ref.child("id").once("value", function(data) {
-	console.log(data.val());
-	ref.update({"id": data.val() + 1});
+        ref.update({"id": data.val() + 1});
     });
 };
-
-initID();
-increamentID();
-increamentID();
-increamentID();
 
 // add song method
 var addSong = function(songJSON) {
@@ -49,14 +38,10 @@ var addJukebox = function() {
 
 };
 
-
-
-
-
 // Update all when value is changed
 ref.on("value", function(snapshot) {
 //    console.log("This is the snapshot of songs");
-    var snapshotObj = snapshot.child("songs").val();
+    var snapshotObj = snapshot.child("jukebox").val();
     var songs = [];
     for (var key in snapshotObj) {
 	if (snapshotObj.hasOwnProperty(key)) {
