@@ -83,7 +83,10 @@
 	<script type="text/javascript" src="application.js"></script>
 	<script type="text/javascript">
 
-		var jukebox = new Jukebox();
+		var jukebox = new Jukebox(
+			'User',
+			'userID'
+		);
 		var ref = new Firebase("https://amber-torch-7758.firebaseio.com/");
 
 		//getSearch('pentatonix', 'track');
