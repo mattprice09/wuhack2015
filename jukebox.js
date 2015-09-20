@@ -45,6 +45,7 @@ function Jukebox(name, id, state){
 	this.songs = [];
 	this.artists = [];
 	this.state = state; //one character to indicate type for update() calls
+	readAll()
 }
 
 Jukebox.prototype.play = function(){
