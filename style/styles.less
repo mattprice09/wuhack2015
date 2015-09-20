@@ -114,7 +114,7 @@ header{
 		height: @biggerHeight;
 		line-height: @biggerHeight;
 		margin-top: -1.25em;
-		.OxygenFont();
+		font-family: @pacifico;
 		font-weight: 700;
 	}
 
@@ -200,17 +200,17 @@ div#search{
 
 	input#searchBar, button{
 		display: inline-block;
-		height: 10%;
-		margin: 1.25em 0 0.5em 0;
+		height: 4em;
+		margin: 1.25em 0 1em 0;
 	}
 
 	input#searchBar{
-		width: 80%;
+		width: 70%;
 		margin-right: 1em;
 	}
 
 	button{
-		width: 10%;
+		width: 4em;
 	}
 
 }
@@ -265,13 +265,14 @@ div#rankings{
 		margin-bottom: 1em;
 		padding: 0;
 		border: 0.5em solid white;
-		transition: margin-left 0.5s;
+		transition: all 0.35s;
 
 		div.trackSelector, div.songResult, div.songData, img.albumPicture{
 			height: @wrapperHeight;
 			float: left;
 			display: inline-block;
 			margin: 0;
+			transition: all 0.35s;
 		}
 
 		div.trackSelector{
@@ -281,7 +282,7 @@ div#rankings{
 			height: @wrapperHeight;
 			text-align: center;
 			font-size: 1em;
-			line-height: @wrapperHeight;
+			line-height: 6em;
 			font-weight: 700;
 			padding: 0;
 			border: none;
@@ -327,7 +328,15 @@ div#rankings{
 	}
 
 	div.songWrapper:hover{
-		margin-left: -1em;
+		
+		margin-left: -2em;
+		background: white;
+		color: @charcoal;
+
+		div.trackSelector{
+			background: white;
+		}
+
 	}
 
 }
