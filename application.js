@@ -29,21 +29,21 @@ var cSong = {
     "id": "6yr8GiT6Q5ebdT",
     "popularity": 1,
     "score": 1,
-    "title": "Yellow"
+    "title": "Yellowwwwww"
 };
 
 function getSongJSON(trackID){
     for(var s = 0; s < jukebox.getSongs().length; s++){
 	if(jukebox.getSongs()[s].getID() == trackID){
-	    return JSON.stringify(jukebox.getSongs()[s]);
+	    return jukebox.getSongs()[s];
 	}
     }
 }
 
 // write a track to the DB
-function postTrack(trackID){    
+function postTrack(trackID){
     var json = getSongJSON(trackID);
-    alert("POST: " + json + " TO SERVER.");   
-    addSong(cSong);
+    console.log(json);
     addSong(json);
+    alert("song added to database");
 }
