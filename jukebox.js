@@ -172,19 +172,6 @@ Jukebox.prototype.countGenres = function(){
 			}
 		}
 	}
-	/*for(var a = 0; a < this.artist.length; a++){
-		for(var g = 0; g < genreCounter.length; g++){
-			if(genreCounter[g].genre == this.artist[a].genre){
-				genreCounter[g].count++;
-			}
-			else if(this.artist[a].genre != 'none'){
-				genreCounter.push({
-					'genre': this.artist[a].genre,
-					'count': 1
-				});
-			}
-		}
-	}*/
 	return genreCounter;
 }
 
