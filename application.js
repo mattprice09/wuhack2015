@@ -103,10 +103,10 @@ function postTrack(trackID){
     addSong(json);
 }
 
-/**function setIDnum() {
+function setIDnum() {
     ref.child("jukebox").update ({
-        "boxID": 1
+        "boxID": "12B"
     });
 }
 
-setIDnum();*/
+setIDnum();
