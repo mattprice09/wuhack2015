@@ -61,5 +61,6 @@ function getSongJSON(trackID){
 // write a track to the DB
 function postTrack(trackID){
     var json = getSongJSON(trackID);
+    json.isQuery = false;
     addSong(json);
 }
