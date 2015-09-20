@@ -81,7 +81,7 @@ Jukebox.prototype.play = function(){
 	this.songs.splice(0, 1);
 	setTimeout(function(){
 		jukebox.update('q');
-	}, PLAY_TIME * 1000);
+	}, 2 * PLAY_TIME * 1000);
 }
 
 Jukebox.prototype.update = function(type){

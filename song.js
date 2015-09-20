@@ -80,14 +80,14 @@ Song.prototype.toHTML = function(type){
 		html += '<div class="songWrapper" onclick="previewSong(&#39;' + this.preview + '&#39;);">';
 		//html += '<div class="trackSelector">&#9834;+</div>';
 		html += '<img class="albumPicture" src="' + this.image + '" onclick="postTrack(&#39;' + this.getID() + '&#39;);">'
-		html += '<div class="songResult"><h2>' + this.title + ' <span class="songScore">' + this.score + '</span>' + '</h2><h3>' + this.artist + ', ' + this.genre + '</h3></div>';
+		html += '<div class="songResult"><h2>' + this.title + ' <span class="songScore">' + this.score + '</span>' + '</h2><h3>' + this.artist + ', ' + this.genre.toTitleCase() + '</h3></div>';
 		html += '</div>';
 	}
 	else if(type == 'q' && !(this.isQuery)){
 		html += '<div class="songWrapper">';
 		//html += '<div class="trackSelector">&#9834;+</div>';
 		html += '<img class="albumPicture" src="' + this.image + '">'
-		html += '<div class="songResult"><h2>' + this.title + ' <span class="songScore">' + this.score + '</span>' + '</h2><h3>' + this.artist + ', ' + this.genre + '</h3></div>';
+		html += '<div class="songResult"><h2>' + this.title + ' <span class="songScore">' + this.score + '</span>' + '</h2><h3>' + this.artist + ', ' + this.genre.toTitleCase() + '</h3></div>';
 		var icon = 'X';
 		if(this.isLocked){
 			icon = '&#128274;';
@@ -103,7 +103,7 @@ Song.prototype.toHTML = function(type){
 		html += '<div class="songWrapper">';
 		//html += '<div class="trackSelector">&#9834;+</div>';
 		html += '<img class="albumPicture" src="' + this.image + '">'
-		html += '<div class="songResult"><h2>' + this.title + ' <span class="songScore">' + this.score + '</span>' + '</h2><h3>' + this.artist + ', ' + this.genre + '</h3></div>';
+		html += '<div class="songResult"><h2>' + this.title + ' <span class="songScore">' + this.score + '</span>' + '</h2><h3>' + this.artist + ', ' + this.genre.toTitleCase() + '</h3></div>';
 		var icon = 'X';
 		if(this.isLocked){
 			icon = '&#128274;';
