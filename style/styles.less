@@ -233,11 +233,10 @@ div.pane{
 
 	}
 
-	div#footer{
+	div#credits{
 
 		img{
-			height: 1em;
-			float: left;
+			margin: 0 2em;
 		}
 
 	}
@@ -274,7 +273,7 @@ button.homeButton{
 	button.homeButton:hover{
 		border: 2.5em solid white;
 		background: rgba(255, 255, 255, 1.0);
-		height: 16em;
+		height: 18em;
 	}
 
 span.fancy{
@@ -497,7 +496,7 @@ div.songWrapper{
 		margin-top: -1em;
 	}
 
-	button.removeButton{
+	button.removeButton, button.upvote{
 		background: @focusColor;
 		color: @charcoal;
 		margin: 2em;
@@ -507,6 +506,15 @@ div.songWrapper{
 		float: right;
 		border-radius: 1.5em;
 		text-align: center;
+	}
+
+	button.upvote{
+		
+		img{
+			margin-top: 0.25em;
+			height: 2em;
+		}
+
 	}
 
 }

@@ -3,6 +3,7 @@
 var ref = new Firebase("https://amber-torch-7758.firebaseio.com");
 var JBRef = new Firebase("https://amber-torch-7758.firebaseio.com/jukebox");
 var songsRef = new Firebase("https://amber-torch-7758.firebaseio.com/jukebox/songs");
+<<<<<<< HEAD
 var jukeboxID = "12B";
 
 // Increments the Jukebox ID counter in the database
@@ -36,9 +37,12 @@ var fetchName = function(jukeID) {
 
 var addUser = function(songID) {
     songsRef.child(songID).once("value", function(data) {
-        songsRef.child(songID).update({users: data.val() + 1});
+        console.log(data);
+        songsRef.child(songID).update({users: data.child("users").val() + 1});
     });
 }
+
+// ADD GETUSERS HERE
 
 // Instantiates jukebox in database
 var createJukebox = function() {
