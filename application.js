@@ -21,7 +21,9 @@ var update = function(songID, key, value) {
 // read all objects from the database and also continuously read when a Song is added
 var readAll = function(callback) {
     songsRef.on("child_added", function(snapshot) {
-        jukebox.addSongs([dataToSong(snapshot.val())]);
+        song = datatoSong(snapshot.val());
+        song.isQuery = false;
+        jukebox.addSongs([song]);
     });
 };
 
@@ -43,6 +45,7 @@ ref.on("value", function(snapshot) {
     }
     console.log("......this is the one");
 
+    songs[0].isQuery = false;
     jukebox.addSongs(songs);
 
 }, function(errorObject) {
