@@ -3,7 +3,6 @@
 var ref = new Firebase("https://amber-torch-7758.firebaseio.com");
 var JBRef = new Firebase("https://amber-torch-7758.firebaseio.com/jukebox");
 var songsRef = new Firebase("https://amber-torch-7758.firebaseio.com/jukebox/songs");
-<<<<<<< HEAD
 var jukeboxID = "12B";
 
 // Increments the Jukebox ID counter in the database
