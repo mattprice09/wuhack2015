@@ -39,14 +39,14 @@ ref.on("value", function(snapshot) {
     var songs = [];
     for (var key in snapshotObj) {
 	if (snapshotObj.hasOwnProperty(key)) {
-	    console.log(key + "->" + snapshotObj[key].title);
+//	    console.log(key + "->" + snapshotObj[key].title);
 	    songs.push(dataToSong(snapshotObj[key]));
 	}
     }
-    console.log(songs);
+//    console.log(songs);
 
     jukebox.addSongs(songs);
-    console.log("after addsong");
+//    console.log("after addsong");
 }, function(errorObject) {
     console.log("The read failed");
 });
