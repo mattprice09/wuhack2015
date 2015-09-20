@@ -44,6 +44,7 @@ function joinParty(){
 	currentParty.innerHTML = "Sending songs to " + partyID.value + ". Click green to vote on songs. Click this box to change parties.";
 	currentParty.style.display = 'block';
 	document.getElementById('voteButton').style.display = 'block';
+	partyInput.value = '';
 }
 
 function vote(){

@@ -51,13 +51,13 @@
 			<button id="joinParty" onclick="joinParty();">
 				<img src="style/party.png" />
 			</button>
-			<div id="currentParty" onclick="this.style.display='none';document.getElementById('voteButton').style.display='none';"></div>
+			<div id="currentParty" onclick="this.style.display='none';document.getElementById('voteButton').style.display='none';instruct('Enter the code given to you by your party host above or start browsing music below.');"></div>
 			<button class="partyOptions" id="voteButton" onclick="vote();">
 				<img src="style/upvote.png" />
 			</button>
 	</div>
 
-	<p class="instructions" id="instruct">Enter the code given to you by your party host or start browsing music below.</p>
+	<p class="instructions" id="instruct">Enter the code given to you by your party host above or start browsing music below.</p>
 
 	<div id="search">
 			<input type="text" id='searchBar' placeholder="search for a track, artist, or album" />
