@@ -21,8 +21,14 @@ var update = function(songID, key, value) {
 // read all objects from the database and also continuously read when a Song is added
 var readAll = function(callback) {
     songsRef.on("child_added", function(snapshot) {
-        console.log(dataToSong(snapshot.val()));
         jukebox.addSongs([dataToSong(snapshot.val())]);
+    });
+};
+
+var updateAll = function(callback) {
+    songsRef.on("child_changed", function(snapshot) {
+        Console.log(snapshot);
+        jukebox.calculateScore()
     });
 };
 
