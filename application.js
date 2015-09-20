@@ -19,7 +19,7 @@ var getNewID = function() {
     });
 };
 
-
+// Returns name of the Jukebox with JukeID input
 var fetchName = function(jukeID) {
     val = jukeID;
     toReturn = "";
@@ -32,6 +32,12 @@ var fetchName = function(jukeID) {
         }
     });
     return toReturn;
+}
+
+var addUser = function(songID) {
+    songsRef.child(songID).once("value", function(data) {
+        songsRef.child(songID).update({users: data.val() + 1});
+    });
 }
 
 // Instantiates jukebox in database
