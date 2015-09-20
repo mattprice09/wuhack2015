@@ -23,6 +23,7 @@ function dataToSong(trackData){
 		trackData.genre,
 		getDeviceIP()
 	);
+	song.isQuery = true;
 	// Update Artist
 	getArtist(song.artistID);
 	// ADD SPOTIFY GOODIES
@@ -46,6 +47,7 @@ function Song(id, title, artistID, artist, genre, userID){
 	this.users = [];
 	this.users.push(userID || 'anonUser');
 	this.isLocked = false;
+	this.isQuery = false;
 	// FROM SPOTIFY
 	this.popularity = 0;
 	this.image = 'null';
