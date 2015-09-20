@@ -21,7 +21,7 @@ function dataToSong(trackData){
 		trackData.artistID,
 		trackData.artist,
 		trackData.genre,
-		getDeviceIP()
+		1
 	);
 	song.isQuery = true;
 	// Update Artist
@@ -38,14 +38,13 @@ function dataToSong(trackData){
 /*---> SONG CLASS <---------------------------*/
 /*--------------------------------------------*/
 
-function Song(id, title, artistID, artist, genre, userID){
+function Song(id, title, artistID, artist, genre, userVotes){
 	this.id = id;
 	this.title = title;
 	this.artistID = artistID;
 	this.artist = artist;
 	this.genre = genre;
-	this.users = [];
-	this.users.push(userID || 'anonUser');
+	this.users = 1;
 	this.isLocked = false;
 	this.isQuery = false;
 	// FROM SPOTIFY
@@ -148,19 +147,6 @@ Song.prototype.getGenre = function(){
 
 Song.prototype.setGenre = function(genre){
 	this.genre = genre;
-}
-
-Song.prototype.getUsers = function(){
-	return this.users;
-}
-
-/*
-* Note that userID is an array of userIDs, be sure to wrap in [] brackets, even when pushing only a single userID
-*/
-Song.prototype.addUsers = function(userID){
-	for(var u = 0; u < userID.length; u++){
-		this.users.push(userID[u]);
-	}
 }
 
 Song.prototype.getScore = function(){
