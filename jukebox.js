@@ -18,7 +18,9 @@ function sortSongsByScores(song1, song2){
 /*---> JUKEBOX CLASS <------------------------*/
 /*--------------------------------------------*/
 
-function Jukebox(){
+function Jukebox(name, id){
+	this.name = name;
+	this.id = id;
 	this.songs = [];
 	this.artists = []
 }
