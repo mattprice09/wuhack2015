@@ -22,7 +22,7 @@ var getNewID = function() {
 
 var fetchName = function(jukeID) {
     ref.endAt().on("child_added", function(snapshot) {
-        if (snapshot.val().get("jbID") == jukeID) {
+        if (snapshot.val().get("boxID") == jukeID) {
             return snapshot.val().get("name");
         } else {
             return null;
@@ -104,8 +104,8 @@ function postTrack(trackID){
 }
 
 /**function setIDnum() {
-    ref.child("jukebox").child("boxID").update ({
-        
+    ref.child("jukebox").update ({
+        "boxID": 1
     });
 }
 
