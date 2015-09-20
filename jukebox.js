@@ -38,13 +38,18 @@ function removeFromQueue(trackID){
 function joinParty(){
 	var partyInput = document.getElementById('partyID');
 	var currentParty = document.getElementById('currentParty');
-	// Check if partyID is valid or not
-	jukebox.partyID = partyInput.value;
-	instruct("Click the song for a preview and click the album cover to submit to the group!");
-	currentParty.innerHTML = "Sending songs to " + partyID.value + ". Click green to vote on songs. Click this box to change parties.";
-	currentParty.style.display = 'block';
-	document.getElementById('voteButton').style.display = 'block';
-	partyInput.value = '';
+	if(fetchName(partyInput.value) != null){
+		jukebox.partyID = partyInput.value;
+		instruct("Click the song for a preview and click the album cover to submit to the group!");
+		currentParty.innerHTML = "Sending songs to " + partyID.value + ". Click green to vote on songs. Click this box to change parties.";
+		currentParty.style.display = 'block';
+		document.getElementById('voteButton').style.display = 'block';
+		partyInput.value = '';
+	}
+	else{
+		instruct("That is not a valid party ID code.");
+	}
+
 }
 
 function vote(){
