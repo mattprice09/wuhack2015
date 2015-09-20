@@ -80,6 +80,8 @@ var deleteSong = function(songID) {
     DBRef.child("songs").child(songID).remove();
 };
 
+deleteSong("5yPac810juhAmrXE1uri67");
+
 var update = function(songID, key, value) {
     songsRef.child(songID).child(key).set(value);
 };
