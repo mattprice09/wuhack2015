@@ -2,7 +2,7 @@
 /*---> GLOBALS <------------------------------*/
 /*--------------------------------------------*/
 
-var PLAY_TIME = 3; // In Seconds
+var PLAY_TIME = 5; // In Seconds
 
 function playQueue(){
 	jukebox.play();
