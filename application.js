@@ -26,10 +26,9 @@ var readAll = function(callback) {
 };
 
 var updateAll = function(callback) {
-    songsRef.on("child_changed", function(snapshot) {
-        Console.log(snapshot);
-        jukebox.calculateScore()
-    });
+    ref.on("value", function(snapshot)) {
+        Console.log(snapshot)
+    }
 };
 
 // update the host when a new song is added
@@ -50,18 +49,6 @@ ref.on("value", function(snapshot) {
 }, function(errorObject) {
     console.log("The read failed");
 });
-
-/*
-var cSong = {
-    "artist": "ColdPlay",
-    "artistID": "7dGJo4oG8kP0tJRR",
-    "genre": "grea",
-    "id": "6yr8GiT6Q5ebdT",
-    "popularity": 1,
-    "score": 1,
-    "title": "Yellowwwwww"
-};
-*/
 
 function getSongJSON(trackID){
     for(var s = 0; s < jukebox.getSongs().length; s++){
