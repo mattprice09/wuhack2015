@@ -206,9 +206,9 @@ div.pane{
 	div#welcome{
 		
 		background: url('spotifyPartyGray.png');
-		background-size: 100%;
+		background-size: auto 180%;
 		background-position: 0 0;
-		height: 20em;
+		height: 24em;
 		padding: 2em 0;
 
 		p{
@@ -228,20 +228,29 @@ p.inputHolders{
 
 button.homeButton{
 
-	background: @focusColor;
+	background: rgba(255, 255, 255, 0.5);
 	float: left;
-	width: 46%;
-	margin: 2%;
-	padding: 2% 0;
+	width: 48%;
+	margin: 1%;
+	padding: 1% 0;
 	border-radius: 2em;
 	border: 1em solid black;
+	transition: all 0.35s;
+	text-align: center;
+	font-size: 1em;
 
 	img{
 		height: 10em;
-
+		clear: both;
 	}
 
 }
+
+	button.homeButton:hover{
+		border: 2.5em solid white;
+		background: rgba(255, 255, 255, 0.75);
+		height: 16em;
+	}
 
 span.fancy{
 	font-family: @pacifico;
@@ -539,6 +548,10 @@ h1{
 	.OxygenFont(white, 1.25em);
 	text-align: left;
 }*/
+
+ul{
+	outline-style: square;
+}
 
 /*--------------------------------------------*/
 /*---> IMAGES <-------------------------------*/
