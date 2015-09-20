@@ -25,11 +25,11 @@ var readAll = function(callback) {
     });
 };
 
-var updateAll = function(callback) {
+/*var updateAll = function(callback) {
     ref.on("value", function(snapshot)) {
         Console.log(snapshot);
     }
-};
+};*/
 
 // Update all when value is changed
 ref.on("value", function(snapshot) {
