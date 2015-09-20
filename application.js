@@ -85,7 +85,7 @@ var update = function(songID, key, value) {
 };
 
 // read all objects from the database and also continuously read when a Song is added
-vary readAll = function(callback) {
+var readAll = function(callback) {
     songsRef.on("child_added", function(snapshot) {
         song = dataToSong(snapshot.val());
         console.log(snapshot.val());
