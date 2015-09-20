@@ -27,13 +27,13 @@ var readAll = function(callback) {
 
 var updateAll = function(callback) {
     ref.on("value", function(snapshot)) {
-        Console.log(snapshot)
+        Console.log(snapshot);
     }
 };
 
 // update the host when a new song is added
 ref.on("value", function(snapshot) {
-    console.log("This is the snapshot of songs");
+//    console.log("This is the snapshot of songs");
     var snapshotObj = snapshot.child("songs").val();
     var songs = [];
     for (var key in snapshotObj) {
@@ -47,7 +47,7 @@ ref.on("value", function(snapshot) {
     jukebox.addSongs(songs);
 //    console.log("after addsong");
 }, function(errorObject) {
-//    console.log("The read failed");
+    console.log("The read failed");
 });
 
 function getSongJSON(trackID){
