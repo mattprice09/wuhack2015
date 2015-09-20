@@ -35,6 +35,15 @@ function removeFromQueue(trackID){
 	jukebox.update('q');
 }
 
+function joinParty(){
+	var partyInput = document.getElementById('partyID');
+	var currentParty = document.getElementById('currentParty');
+	// Check if partyID is valid or not
+	jukebox.partyID = partyInput.value;
+	instruct("Click the song for a preview, and the album cover to submit to the group!");
+	currentParty.innerHTML = "Sending songs to " + partyID.value;
+}
+
 /*
 * This function can be passed into a sort function as a comparator when sorting an array of songs
 * Ex) var songs = [song1, song2, song3];
@@ -55,6 +64,7 @@ function Jukebox(name, id, state){
 	this.songs = [];
 	this.artist = [];
 	this.state = state; //one character to indicate type for update() calls
+	this.partyID = "null";
 	readAll();
 }
 

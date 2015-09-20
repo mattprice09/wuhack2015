@@ -99,6 +99,22 @@ Song.prototype.toHTML = function(type){
 
 		html += '</div>';
 	}
+	else if(type == 'v' && !(this.isQuery)){
+		html += '<div class="songWrapper">';
+		//html += '<div class="trackSelector">&#9834;+</div>';
+		html += '<img class="albumPicture" src="' + this.image + '">'
+		html += '<div class="songResult"><h2>' + this.title + ' <span class="songScore">' + this.score + '</span>' + '</h2><h3>' + this.artist + ', ' + this.genre + '</h3></div>';
+		var icon = 'X';
+		if(this.isLocked){
+			icon = '&#128274;';
+			html += '<button class="removeButton">' + icon + '</button>';
+		}
+		else{
+			html += '<button class="removeButton" onclick="removeFromQueue(&#39;' + this.id + '&#39;)">' + icon + '</button>';			
+		}
+
+		html += '</div>';
+	}
 	return html;
 }
 

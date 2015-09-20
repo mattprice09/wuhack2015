@@ -93,3 +93,8 @@ $("#searchBar").keypress(function(e) {
     $("#playButton").click();
   }
 });*/
+
+function instruct(message){
+  var instructions = document.getElementById('instruct');
+  instructions.innerHTML = message;
+}
