@@ -77,10 +77,8 @@ var addSong = function(songJSON) {
 
 // delete a song from the list
 var deleteSong = function(songID) { 
-    DBRef.child("songs").child(songID).remove();
+    JBRef.child("songs").child(songID).remove();
 };
-
-deleteSong("5yPac810juhAmrXE1uri67");
 
 var update = function(songID, key, value) {
     songsRef.child(songID).child(key).set(value);
