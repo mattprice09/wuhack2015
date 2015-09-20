@@ -77,7 +77,7 @@ var addSong = function(songJSON) {
 
 // delete a song from the list
 var deleteSong = function(songID) { 
-    ref.child("songs").child(songID).remove();
+    DBRef.child("songs").child(songID).remove();
 };
 
 var update = function(songID, key, value) {
@@ -85,7 +85,7 @@ var update = function(songID, key, value) {
 };
 
 // read all objects from the database and also continuously read when a Song is added
-var readAll = function(callback) {
+vary readAll = function(callback) {
     songsRef.on("child_added", function(snapshot) {
         song = dataToSong(snapshot.val());
         console.log(snapshot.val());
