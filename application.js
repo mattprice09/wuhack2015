@@ -112,11 +112,3 @@ function postTrack(trackID){
     json.isQuery = false;
     addSong(json);
 }
-
-/**function setIDnum() {
-    ref.child("jukebox").update ({
-        "name": "CoolParty"
-    });
-}
-
-setIDnum();*/
