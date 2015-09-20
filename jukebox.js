@@ -188,7 +188,7 @@ Jukebox.prototype.getArtistById = function(artistID){
 * Note that artists is an array of artists, be sure to wrap in [] brackets, even when pushing only a single artists
 */
 Jukebox.prototype.addArtists = function(artists){
-	for(var a = 0; a < artist.length; a++){
+	for(var a = 0; a < artists.length; a++){
 		//var songExists = this.addToExistingSong(artists[a]);
 		//TO-DO Create Artist equivalent of this ^
 		//if(!songExists){
