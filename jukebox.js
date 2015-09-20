@@ -79,7 +79,6 @@ function Jukebox(name, id, state){
 	this.state = state; //one character to indicate type for update() calls
 	this.partyID = "null";
 	readAll();
-	updateAll();
 	createJukebox;
 }
 

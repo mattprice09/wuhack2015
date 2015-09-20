@@ -3,7 +3,7 @@
 var ref = new Firebase("https://amber-torch-7758.firebaseio.com");
 var JBRef = new Firebase("https://amber-torch-7758.firebaseio.com/jukebox");
 var songsRef = new Firebase("https://amber-torch-7758.firebaseio.com/jukebox/songs");
-var jukeboxID = "12B";
+var jukeboxID = "";
 
 // Increments the Jukebox ID counter in the database
 var incrementID = function() {
@@ -15,7 +15,6 @@ var incrementID = function() {
 // Sets jukeboxID global variable to hexademical String ID value
 var getNewID = function() {
     ref.child("id").once("value", function(data) {
-       console.log(300.toString(16));
        jukeboxID = data.val().toString(16);
     });
 };
@@ -43,12 +42,14 @@ var addUser = function(songID) {
 }
 
 var getNumUsers = function(songID) {
-    int num = 0;
+    var num = 0;
     songsRef.child(songID).once("value", function(data) {
         num = data.child("users").val();
-    }
+    });
     return num;
 }
+
+// ADD GETUSERS HERE
 
 // Instantiates jukebox in database
 var createJukebox = function() {
@@ -85,18 +86,37 @@ var update = function(songID, key, value) {
 var readAll = function(callback) {
     songsRef.on("child_added", function(snapshot) {
         song = dataToSong(snapshot.val());
+        console.log(snapshot.val());
         song.isQuery = false;
         jukebox.addSongs([song]);
     });
 };
 
-var updateAll = function(callback) {
+/**var updateAll = function(callback) {
     songsRef.on("child_changed", function(snapshot) {
         song = dataToSong(snapshot.val());
         song.isQuery = false;
         jukebox.addSongs([song]);
     }
-}
+}*/
+
+// Update all when value is changed
+JBRef.on("value", function(snapshot) {
+    console.log(snapshot.val());
+    var snapshotObj = snapshot.child("songs").val();
+    var songs = [];
+    for (var key in snapshotObj) {
+	if (snapshotObj.hasOwnProperty(key)) {
+        snapshotObj[key].isQuery = false;
+	    songs.push(dataToSong(snapshotObj[key]));
+	}
+    }
+    
+    jukebox.addSongs(songs, snapshot.val());
+
+}, function(errorObject) {
+    console.log("The read failed");
+});
 
 function getSongJSON(trackID){
     for(var s = 0; s < jukebox.getSongs().length; s++){
