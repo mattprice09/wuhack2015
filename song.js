@@ -69,10 +69,10 @@ Song.prototype.toHTML = function(spotifyPlayer){
 		html += '</div>';
 	}
 	else{
-		html += '<div class="item">';
-		html += '<button onclick="postTrack(&#39;' + this.getID() + '&#39;);">+</button>';
-		html += '<div class="songResult">' + this.title + '</div>';
-		html += '<img class="albumPicture" src="' + this.image + '">'
+		html += '<div class="songWrapper">';
+		html += '<div class="trackSelector" onclick="postTrack(&#39;' + this.getID() + '&#39;);">&#9834;+</div>';
+			html += '<img class="albumPicture" src="' + this.image + '">'
+		html += '<div class="songResult"><h2>' + this.title + '</h2><h3>' + this.artist + '</h3></div>';
 		html += '</div>';
 	}
 	return html;

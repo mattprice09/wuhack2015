@@ -12,6 +12,7 @@
 /*--------------------------------------------*/
 
 @oxygen: 'Oxygen', sans-serif;
+@pacifico: 'Pacifico', cursive;
 
 .OxygenFont(@textColor: white, @size: 1.25em){
 	font-family: @oxygen;
@@ -195,6 +196,7 @@ div#search{
 	
 	width: 100%;
 	.Center();
+	.SlideButton();
 
 	input#searchBar, button{
 		display: inline-block;
@@ -242,7 +244,7 @@ div#rankings{
 			background: rgba(255, 255, 255, 0.5)
 		}
 
-		iframe, div.songResult{
+		iframe{
 			display: inline-block;
 			width: 100%;
 			height: 80px;
@@ -252,14 +254,80 @@ div#rankings{
 
 	}
 
-	div.songResult{
-		background: white;
-		color: @charcoal;
+	div.songWrapper{
+
+		@wrapperHeight: 6em;
+
+		background: @charcoal;
+		width: 100%;
+		height: @wrapperHeight;
+		display: inline-block;
+		margin-bottom: 1em;
+		padding: 0;
+		border: 0.5em solid white;
+		transition: margin-left 0.5s;
+
+		div.trackSelector, div.songResult, div.songData, img.albumPicture{
+			height: @wrapperHeight;
+			float: left;
+			display: inline-block;
+			margin: 0;
+		}
+
+		div.trackSelector{
+			background: @charcoal;
+			background-size: @wrapperHeight;
+			width: @wrapperHeight/2;
+			height: @wrapperHeight;
+			text-align: center;
+			font-size: 1em;
+			line-height: @wrapperHeight;
+			font-weight: 700;
+			padding: 0;
+			border: none;
+		}
+
+		div.songResult{
+			
+			width: auto;
+			background: transparent;
+			height: @wrapperHeight;
+			line-height: @wrapperHeight;
+			margin-left: 1em;
+
+			h2, h3{
+				font-family: @oxygen;
+				text-align: left;
+				line-height: 0;
+				padding: 0;
+				margin: 0;
+			}
+
+			h2{
+				font-family: @pacifico;
+				font-size: 2em;
+				line-height: 2em;
+			}
+
+			h3{
+				font-size: 1em;
+				line-height: 1em;
+			}
+
+		}
+
+		div.songData{
+			
+		}
+
+		img.albumPicture{
+			width: @wrapperHeight;
+		}
+
 	}
 
-	img.albumPicture{
-		width: 80px;
-		height: 80px;
+	div.songWrapper:hover{
+		margin-left: -1em;
 	}
 
 }
@@ -344,36 +412,36 @@ input, select, button{
 	.FormCleanse();
 }
 
-input, button{
-	background: transparent;
-	border: 0.25em solid white;
-	.OxygenFont(white, 2em);
-	padding: 0 1em;
-	margin: 1em;
-	.PlaceHolder(@charcoal);
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-}
+.SlideButton(){
 
-button{
-	.OxygenFont(white, 2em);
-	// Based on tutorial from: stackoverflow.com/questions/17212094/fill-background-color-left-to-right-css
-	background: linear-gradient(to right, transparent 50%, @darkTone 50%);
-	background-size: 200% 100%;
-	background-position: left bottom;
-}
+	input, button{
+		background: transparent;
+		border: 0.25em solid white;
+		.OxygenFont(white, 2em);
+		padding: 0 1em;
+		margin: 1em;
+		.PlaceHolder(@charcoal);
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
 
-button:hover{
-	background-position: right bottom;
-	transition: all 0.5s ease;
-}
+	button{
+		.OxygenFont(white, 2em);
+		// Based on tutorial from: stackoverflow.com/questions/17212094/fill-background-color-left-to-right-css
+		background: linear-gradient(to right, transparent 50%, @darkTone 50%);
+		background-size: 200% 100%;
+		background-position: left bottom;
+	}
 
-button:active{
-	background: @lightTone;
-}
+	button:hover{
+		background-position: right bottom;
+		transition: all 0.5s ease;
+	}
 
-button#submit2{
-	transition: background 1s ease;
+	button:active{
+		background: @lightTone;
+	}
+
 }
 
 @media screen and (max-aspect-ratio: 3/2){
