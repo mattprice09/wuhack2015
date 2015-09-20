@@ -2,11 +2,27 @@
 // get a reference of the database
 var ref = new Firebase("https://amber-torch-7758.firebaseio.com");
 var songsRef = new Firebase("https://amber-torch-7758.firebaseio.com/songs");
+var jukeboxID;
 
 var incrementID = function() {
     ref.child("id").once("value", function(data) {
         ref.update({"id": data.val() + 1});
     });
+};
+
+var getNewID = function() {
+    ref.child("id").once("value", function(data) {
+	jukeboxID = data.val();
+    });
+};
+
+var createJukebox = function() {
+    getNewID();
+    incrementID();
+};
+
+var joinJukebox = function(jbID) {
+    jukeboxID = jbID;
 };
 
 // add song method
