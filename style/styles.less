@@ -254,89 +254,89 @@ div#rankings{
 
 	}
 
-	div.songWrapper{
+}
 
-		@wrapperHeight: 6em;
+div.songWrapper{
 
-		background: @charcoal;
-		width: 100%;
+	@wrapperHeight: 6em;
+
+	background: @charcoal;
+	width: 100%;
+	height: @wrapperHeight;
+	display: inline-block;
+	margin-bottom: 1em;
+	padding: 0;
+	border: 0.5em solid white;
+	transition: all 0.35s;
+
+	div.trackSelector, div.songResult, div.songData, img.albumPicture{
 		height: @wrapperHeight;
+		float: left;
 		display: inline-block;
-		margin-bottom: 1em;
-		padding: 0;
-		border: 0.5em solid white;
+		margin: 0;
 		transition: all 0.35s;
+	}
 
-		div.trackSelector, div.songResult, div.songData, img.albumPicture{
-			height: @wrapperHeight;
-			float: left;
-			display: inline-block;
-			margin: 0;
-			transition: all 0.35s;
-		}
+	div.trackSelector{
+		background: @charcoal;
+		background-size: @wrapperHeight;
+		width: @wrapperHeight/2;
+		height: @wrapperHeight;
+		text-align: center;
+		font-size: 1em;
+		line-height: 6em;
+		font-weight: 700;
+		padding: 0;
+		border: none;
+	}
 
-		div.trackSelector{
-			background: @charcoal;
-			background-size: @wrapperHeight;
-			width: @wrapperHeight/2;
-			height: @wrapperHeight;
-			text-align: center;
-			font-size: 1em;
-			line-height: 6em;
-			font-weight: 700;
+	div.songResult{
+		
+		width: auto;
+		background: transparent;
+		height: @wrapperHeight;
+		line-height: @wrapperHeight;
+		margin-left: 1em;
+
+		h2, h3{
+			font-family: @oxygen;
+			text-align: left;
+			line-height: 0;
 			padding: 0;
-			border: none;
+			margin: 0;
 		}
 
-		div.songResult{
-			
-			width: auto;
-			background: transparent;
-			height: @wrapperHeight;
-			line-height: @wrapperHeight;
-			margin-left: 1em;
-
-			h2, h3{
-				font-family: @oxygen;
-				text-align: left;
-				line-height: 0;
-				padding: 0;
-				margin: 0;
-			}
-
-			h2{
-				font-family: @pacifico;
-				font-size: 2em;
-				line-height: 2em;
-			}
-
-			h3{
-				font-size: 1em;
-				line-height: 1em;
-			}
-
+		h2{
+			font-family: @pacifico;
+			font-size: 2em;
+			line-height: 2em;
 		}
 
-		div.songData{
-			
-		}
-
-		img.albumPicture{
-			width: @wrapperHeight;
+		h3{
+			font-size: 1em;
+			line-height: 1em;
 		}
 
 	}
 
-	div.songWrapper:hover{
+	div.songData{
 		
-		margin-left: -2em;
+	}
+
+	img.albumPicture{
+		width: @wrapperHeight;
+	}
+
+}
+
+div.songWrapper:hover{
+	
+	margin-left: -2em;
+	background: white;
+	color: @charcoal;
+
+	div.trackSelector{
 		background: white;
-		color: @charcoal;
-
-		div.trackSelector{
-			background: white;
-		}
-
 	}
 
 }
@@ -345,7 +345,8 @@ div#player{
 	
 	iframe{
 		width: 100%;
-		margin: 2em 0;
+		height: 6em;
+		margin: 0;
 	}
 
 }
