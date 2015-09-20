@@ -4,17 +4,28 @@ var ref = new Firebase("https://amber-torch-7758.firebaseio.com");
 var songsRef = new Firebase("https://amber-torch-7758.firebaseio.com/jukebox");
 var jukeboxID;
 
+// Increments the Jukebox ID counter in the database
 var incrementID = function() {
-    ref.child("id").once("value", function(data) {
-        ref.update({"id": data.val() + 1});
+    songsRef.child("id").once("value", function(data) {
+        songsRef.update({"id": data.val() + 1});
     });
 };
 
+// Sets jukeboxID global variable to hexademical String ID value
 var getNewID = function() {
     ref.child("id").once("value", function(data) {
-	jukeboxID = data.val();
+       jukeboxID = data.val().toString(16);
     });
 };
+
+// NEED TO ADD A PARAMETER AND ACCESS IT
+var fetchID = function() {
+    ref.child("id").once("value", function(data) {
+        if (data != null) {
+            return data.val().toString(16);
+        } else return null;
+    });
+}
 
 var createJukebox = function() {
     getNewID();
@@ -47,15 +58,6 @@ var readAll = function(callback) {
         song.isQuery = false;
         jukebox.addSongs([song]);
     });
-};
-
-var getJukeboxID = function(JBname) {
-
-}
-
-// add jukebox
-var addJukebox = function() {
-
 };
 
 // Update all when value is changed
@@ -91,23 +93,8 @@ function postTrack(trackID){
     addSong(json);
 }
 
-/**function toHex(number) {
-    hex = "";
-    num = number;
-    while (num > 0) {
-        hex = hex + (num % 16);
-        num = (num/16);
-    }
-    console.log(hex.length);
-    hexGood = "";
-    for (i = 0; i < hex.length; i++) {
-        if (hex.length < 2) {
-            hexGood = hex;
-        } else {
-            hexGood = hexGood + hex.charAt(hex.length - (i + 1));
-    }
-    }
-    return hexGood;
+function setIDnum() {
+    ref.child("jukebox").set({
+        "name" : jukebox.name
+    });
 }
-
-console.log(toHex(16));*/
