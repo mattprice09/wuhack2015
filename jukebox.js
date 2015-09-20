@@ -2,6 +2,12 @@
 /*---> GLOBALS <------------------------------*/
 /*--------------------------------------------*/
 
+function playQueue(){
+	setInterval(function () {
+		jukebox.play();
+	}, 10000);
+}
+
 /*
 * This function can be passed into a sort function as a comparator when sorting an array of songs
 * Ex) var songs = [song1, song2, song3];
@@ -26,9 +32,9 @@ function Jukebox(name, id){
 }
 
 Jukebox.prototype.play = function(){
-	for(var s = 0; s < this.songs.length; s++){
-		previewSong(this.songs[s].preview);
-	}
+	previewSong(this.songs[0].preview);
+	this.songs.splice(0, 1);
+
 }
 
 Jukebox.prototype.update = function(){
