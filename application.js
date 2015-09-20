@@ -22,6 +22,25 @@ var readAll = function(callback) {
     ref.once("value", callback);
 };
 
+// update the host when a new song is added
+ref.on("value", function(snapshot) {
+    console.log("This is the snapshot of songs");
+    var snapshotObj = snapshot.child("songs").val();
+    var songs = [];
+    for (var key in snapshotObj) {
+	if (snapshotObj.hasOwnProperty(key)) {
+	    console.log(key + "->" + snapshotObj[key].title);
+	    songs.push(dataToSong(snapshotObj[key]));
+	}
+    }
+    console.log(songs);
+
+    jukebox.addSongs(songs);
+    console.log("after addsong");
+}, function(errorObject) {
+    console.log("The read failed");
+});
+
 /*
 var cSong = {
     "artist": "ColdPlay",
@@ -45,7 +64,5 @@ function getSongJSON(trackID){
 // write a track to the DB
 function postTrack(trackID){
     var json = getSongJSON(trackID);
-    console.log(json);
     addSong(json);
-    alert("song added to database");
 }
