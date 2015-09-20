@@ -21,13 +21,17 @@ var getNewID = function() {
 
 
 var fetchName = function(jukeID) {
-    ref.endAt().on("child_added", function(snapshot) {
-        if (snapshot.val().get("boxID") == jukeID) {
-            return snapshot.val().get("name");
+    val = jukeID;
+    toReturn = "";
+    ref.on("child_added", function(snapshot) {
+        if (snapshot.child("boxID").val() == val) {
+            console.log("Input: " + jukeID + ", output: " + snapshot.child("name").val() + " BoxID: " + snapshot.child("boxID").val());
+            toReturn = snapshot.child("name").val();
         } else {
-            return null;
+            toReturn = null;
         }
     });
+    return toReturn;
 }
 
 // Instantiates jukebox in database
@@ -103,10 +107,10 @@ function postTrack(trackID){
     addSong(json);
 }
 
-function setIDnum() {
+/**function setIDnum() {
     ref.child("jukebox").update ({
-        "boxID": "12B"
+        "name": "CoolParty"
     });
 }
 
-setIDnum();
+setIDnum();*/

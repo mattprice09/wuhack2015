@@ -39,6 +39,7 @@ function joinParty(){
 	var partyInput = document.getElementById('partyID');
 	var currentParty = document.getElementById('currentParty');
 	if(fetchName(partyInput.value) != null){
+		console.log("It should've worked");
 		jukebox.partyID = partyInput.value;
 		instruct("Click the song for a preview and click the album cover to submit to the group!");
 		currentParty.innerHTML = "Sending songs to " + partyID.value + ". Click green to vote on songs. Click this box to change parties.";
