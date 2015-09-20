@@ -88,7 +88,7 @@ Jukebox.prototype.update = function(type){
 
 Jukebox.prototype.clearForSearch = function(){
 	for(var s = 0; s < this.songs.length; s++){
-		if(this.songs[s].isQuery()){
+		if(this.songs[s].isQuery){
 			/* Do not call deleteSong(trackID) from application.js
 			 * because a query song should only exist in the client's
 			 * jukebox. Don't accidentally delete a real instance. */
