@@ -14,10 +14,6 @@
 	<link rel="icon" type="img/png" href="style/favicon.png" style="width:30px;">
 	<style type="text/css">
 
-		html{
-			background: #1A1A1A;
-		}
-
 		body{
 			width: 90%;
 			margin: 0 auto;
@@ -50,20 +46,33 @@
 
 	<textarea id="incomingData"></textarea>
 
-	<p>Enter the code given to you by your party host above or start browsing music below.</p>
+	<div id="party">
+			<input type="text" id="partyID" placeholder="party id">
+			<button id="joinParty" onclick="joinParty();">
+				<img src="style/join.png" />
+			</button>
+			<div id="currentParty" onclick="this.style.display='none';document.getElementById('voteButton').style.display='none';instruct('Enter the code given to you by your party host above or start browsing music below.');"></div>
+			<button class="partyOptions" id="voteButton" onclick="vote();">
+				<img src="style/upvote.png" />
+			</button>
+	</div>
 
-	<button class="homeButton" onclick="">
-		<img src="style/join.png" />
-	</button>
+	<p class="instructions" id="instruct">Enter the code given to you by your party host above or start browsing music below.</p>
 
-	<button class="homeButton" onclick="">
-		<img src="style/host.png" />
-	</button>
+	<div id="search">
+			<input type="text" id='searchBar' placeholder="search for a track, artist, or album" />
+			<button id="searchButton" onclick="sendSearchQuery();">
+				<img src="style/search.png" />
+			</button>
+		<div id="previewPlayer"></div>
+	</div>
 
 	<div class="alert" style="display: none;">
 		<p>Hello!</p>
 		<button onclick="closeAlerts();">Close</button>
 	</div>
+
+	<div id="rankings"></div>
 
 	<script type="text/javascript" src="utils.js"></script>
 	<script type="text/javascript" src="spotifyAPI.js"></script>
