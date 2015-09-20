@@ -103,15 +103,7 @@ Song.prototype.toHTML = function(type){
 		//html += '<div class="trackSelector">&#9834;+</div>';
 		html += '<img class="albumPicture" src="' + this.image + '">'
 		html += '<div class="songResult"><h2>' + this.title + ' <span class="songScore">' + this.score + '</span>' + '</h2><h3>' + this.artist + ', ' + this.genre.toTitleCase() + '</h3></div>';
-		var icon = 'X';
-		if(this.isLocked){
-			icon = '&#128274;';
-			html += '<button class="removeButton">' + icon + '</button>';
-		}
-		else{
-			html += '<button class="removeButton" onclick="removeFromQueue(&#39;' + this.id + '&#39;)">' + icon + '</button>';			
-		}
-
+		html += '<button class="upvote" onclick="addUser(&#39;' + this.id + '&#39;); this.style.display=&#39;none&#39;"><img src="style/upvote.png"></button>';
 		html += '</div>';
 	}
 	return html;
