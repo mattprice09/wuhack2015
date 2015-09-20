@@ -194,6 +194,7 @@ div#headerSpace{
 
 div.pane{
 	
+	padding: 2em 0;
 	.FullWidth();
 
 	p{
@@ -205,20 +206,44 @@ div.pane{
 
 	div#welcome{
 		
-		background: url('spotifyPartyGray.png');
-		background-size: auto 180%;
-		background-position: 0 0;
+		background: url('spotifyPartyGray.png') no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+
 		height: 24em;
-		padding: 2em 0;
 
 		p{
 			color: black;
+			background: rgba(255, 255, 255, 0.85);
+			width: 100%;
 		}
 
 	}
 
 	div#features{
+		
 		background: @focusColor;
+
+		p{
+			.OxygenFont(white, 1.25em);
+			margin: 0;
+		}
+
+	}
+
+	div#footer{
+
+		img{
+			height: 1em;
+			float: left;
+		}
+
+	}
+
+	div#footer{
+		background: black;
 	}
 
 p.inputHolders{
@@ -228,7 +253,7 @@ p.inputHolders{
 
 button.homeButton{
 
-	background: rgba(255, 255, 255, 0.5);
+	background: rgba(255, 255, 255, 0.85);
 	float: left;
 	width: 48%;
 	margin: 1%;
@@ -248,7 +273,7 @@ button.homeButton{
 
 	button.homeButton:hover{
 		border: 2.5em solid white;
-		background: rgba(255, 255, 255, 0.75);
+		background: rgba(255, 255, 255, 1.0);
 		height: 16em;
 	}
 
