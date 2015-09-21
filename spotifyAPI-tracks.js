@@ -34,7 +34,8 @@ function getTrack(trackID){
 	$.ajax({
 		url: spotifyBase + 'v1/tracks/' + trackID,
 		beforeSend: function(xhr) {
-			xhr.setRequestHeader("Authorization", "Bearer " + bearer)
+			//xhr.setRequestHeader("Authorization", "Bearer " + bearer)
+			xhr.setRequestHeader('Authorization': 'Basic ' + (new Buffer(clientID + ':' + clientSecret).toString('base64')))
 		},
 		success: function(data){
 			var trackData = getTrackData(data);

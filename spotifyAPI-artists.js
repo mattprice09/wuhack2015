@@ -25,7 +25,8 @@ function getArtist(artistID){
 	$.ajax({
 		url: spotifyBase + 'v1/artists/' + artistID,
 		beforeSend: function(xhr) {
-			xhr.setRequestHeader("Authorization", "Bearer " + bearer)
+			//xhr.setRequestHeader("Authorization", "Bearer " + bearer)
+			xhr.setRequestHeader('Authorization': 'Basic ' + (new Buffer(clientID + ':' + clientSecret).toString('base64')))
 		},
 		success: function(data){
 			var artistData = getArtistData(data);
