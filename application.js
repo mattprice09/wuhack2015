@@ -134,3 +134,15 @@ function postTrack(trackID){
     json.isQuery = false;
     addSong(json);
 }
+
+// Authentification
+/*
+var ref2 = new Firebase("http://google-io.firebaseio.com");
+ref2.authWithOAuthPopup("facebook", function(error, authData) {
+    if (error) {
+	console.log("Login Failed!", error);
+    } else {
+	console.log("Authenticated successfully with payload: ", authData);
+    }
+});
+*/
