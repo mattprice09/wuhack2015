@@ -103,7 +103,7 @@ var readAll = function(callback) {
 }*/
 
 // Update all when value is changed
-/**JBRef.on("value", function(snapshot) {
+JBRef.on("value", function(snapshot) {
     console.log(snapshot.val());
     var snapshotObj = snapshot.child("songs").val();
     var songs = [];
@@ -118,7 +118,7 @@ var readAll = function(callback) {
 
 }, function(errorObject) {
     console.log("The read failed");
-});*/
+});
 
 function getSongJSON(trackID){
     for(var s = 0; s < jukebox.getSongs().length; s++){
