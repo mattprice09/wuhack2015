@@ -94,14 +94,6 @@ var readAll = function(callback) {
     });
 };
 
-/**var updateAll = function(callback) {
-    songsRef.on("child_changed", function(snapshot) {
-        song = dataToSong(snapshot.val());
-        song.isQuery = false;
-        jukebox.addSongs([song]);
-    }
-}*/
-
 // Update all when value is changed
 JBRef.on("value", function(snapshot) {
     console.log(snapshot.val());
