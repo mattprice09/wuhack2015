@@ -2,7 +2,6 @@ var clientID = "afa826690fe04e05a65c5b92ec2bec26";
 var clientSecret = "d19a4e03cd31497981aa0ee5aa891eeb";
 var spotifyBase = "https://api.spotify.com/";
 
-
 var bearer = "BQD4OfT1YVab0-0L9ppYwEoglPAk2dD1d8NIoP_p7lYj9Yo-py-WkRF1rxokU8hKHBNHrIs0XZygi04IkqN9YuwH3cZmGRbQ3QxV9FERe89BldXxAAsU-dktT4LFgUuPoG9NN4yoDE1bEXzg4yctkK7LAeisQ_fFdlB_GJIfgQtxv16zm2DDwWlj1q8NwQLY8PprwiV_6KIm4hntJWix8mCoGzyxlzH33IyTGWWodTVy15GWAFIL6uws0hTL8f8FEVAZYBT89b6U2p9mowjRQVsL6jkaJpJRn81mF0m4fjyg";
 
 /*
