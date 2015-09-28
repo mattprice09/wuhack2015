@@ -72,6 +72,11 @@ function sortSongsByScores(song1, song2){
 /*--------------------------------------------*/
 
 function Jukebox(name, id, state){
+	//New ID Sequence
+	/*console.log(jukeboxID);
+	getNewID();
+	incrementID();
+	console.log(jukeboxID);*/
 	this.name = name;
 	this.id = id;
 	this.songs = [];

@@ -38,6 +38,9 @@
 
 	<div id="rankings" style="margin-top: 1.5em;"></div>
 
+	<!-- Note that I moved application up from below artist.js to the top -->
+	<script type="text/javascript" src="application.js"></script>
+
 	<script type="text/javascript" src="utils.js"></script>
 	<script type="text/javascript" src="spotifyAPI.js"></script>
 	<script type="text/javascript" src="spotifyAPI-tracks.js"></script>
@@ -47,10 +50,11 @@
 	<script type="text/javascript" src="jukebox.js"></script>
 	<script type="text/javascript" src="song.js"></script>
 	<script type="text/javascript" src="artist.js"></script>
-	<script type="text/javascript" src="application.js"></script>
 	<script type="text/javascript">
 
 		var jukebox = new Jukebox();
+
+		console.log(jukeboxID);
 		
 		/*var rapNemesis = "3Fr6Wa1ap0Lv9KZ0lxGkiE";
 		var jennySong = "7eMpW9I1ZpVs6VQ90naDBh";
